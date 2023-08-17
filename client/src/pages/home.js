@@ -3,6 +3,7 @@ import { Header } from '../components/js/header';
 import {Footer} from '../components/js/footer'
 import { Reasons } from '../components/js/reasons';
 import { IntroText } from '../components/js/intro-text';
+import { AboutOurCompany } from '../components/js/about-our-company';
 import '../global.module.css';
 
 
@@ -11,6 +12,7 @@ const Homepage = () => (
                 <Header/>
                 <IntroText/>
                 <Reasons/>
+                <AboutOurCompany/>
                 <Footer/>
         </React.Fragment>
 )
