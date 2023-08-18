@@ -1,0 +1,14 @@
+.mainContainer{
+    padding: 30px;
+    width: 100%;
+}
+.contentContainer{
+    margin: 0;
+    width: 100%;
+}
+.squareContainer{
+    padding: 30px;
+}
+.squareContainer h2 {
+    padding-bottom: 30px;
+}
