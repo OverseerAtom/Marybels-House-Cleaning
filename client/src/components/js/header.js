@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import styles from '../css/header.module.css';
@@ -9,6 +10,8 @@ const Header = () => {
     const toggleMenu = () => {
         setIsOpen(!isOpen)
     }
+    const home_url = 'http://localhost:3000/'
+    const contact_url = 'http://localhost:3000/contact'
 
     return (
         <div className={styles.mainHeader}>
@@ -28,14 +31,20 @@ const Header = () => {
                             <li>Pricing</li>
                             <li>Services</li>
                             <li>About</li>
-                            <li>Contact</li>
+                            <li>
+                                <a href={contact_url}>
+                                    Contact
+                                </a>
+                            </li>
                             <li>Email</li>
                             <li>Book Now</li>
                         </ul>
                     </nav>
                 </div>
                 <div className={styles.middleContentcontainer}>
-                    <img src={logo} alt="logo"></img>
+                    <a href={home_url}>
+                        <img src={logo} alt="logo"></img>
+                    </a>
                 </div>
                 <div className={styles.sandwich} onClick={toggleMenu}>
                     <FontAwesomeIcon icon={faBars} size="lg" />
@@ -46,7 +55,11 @@ const Header = () => {
                         <li>Pricing</li>
                         <li>Services</li>
                         <li>About</li>
-                        <li>Contact</li>
+                        <li>
+                            <a href={contact_url}>
+                                Contact
+                            </a>
+                        </li>
                         <li>Email</li>
                         <li>Book Now</li>
                     </ul>
@@ -57,7 +70,11 @@ const Header = () => {
                         <ul>
                             <li>Email</li>
                             <li>Book Now</li>
-                            <li>Contact</li>
+                            <li>
+                            <a href={contact_url}>
+                                Contact
+                            </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
