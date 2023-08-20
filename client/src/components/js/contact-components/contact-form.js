@@ -74,7 +74,7 @@ const ContactForm = () => {
       if (validateForm()){
         
         try {
-          const response = await axios.post("", formData);
+          const response = await axios.post("/api/submitForm", formData);
 
           if (response.status === 200 || response.status === 201) {
             setMessageSent(true);

@@ -18,8 +18,6 @@ public class ContactFormController {
 
     @PostMapping("/submitForm")
     public ResponseEntity<String> submitForm(@RequestBody ContactFormDTO form) {
-        // Process the form data
-        // Send the email using emailService
         emailService.sendEmail(form);
         return ResponseEntity.ok("Form submitted successfully");
     }
