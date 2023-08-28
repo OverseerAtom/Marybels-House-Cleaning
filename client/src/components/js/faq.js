@@ -1,4 +1,6 @@
 import {React, useState, useEffect} from 'react'
+import { Container } from 'react-bootstrap';
+import axios from 'axios'
 import styles from "../css/faq.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +11,7 @@ const FAQ = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await axios.get("http://localhost:8030")
+                const result = await axios.get("http://localhost:8080/faq")
                 setData(result.data)
             } catch (error) {
                 throw new Error("Data not fetched")
@@ -17,7 +19,7 @@ const FAQ = () => {
         }
         fetchData()
 
-    }, [data]);
+    }, []);
 
 useEffect(() => {
     const faqButtons = document.querySelectorAll(`.${styles.questions}`)
@@ -49,18 +51,20 @@ useEffect(() => {
     return(
         <Container>
             {data?.map(data => (
-            <div  key={data.questions} className={styles.faq}>
+            <div  key={data.question} className={styles.faq}>
                 <div className={styles.questions}>
                     <div className={styles.icon}>
                         <FontAwesomeIcon icon={faPlus} />
                     </div>
-                    <h4>{data.questions}</h4>
+                    <h4>{data.question}</h4>
                 </div>
                 <div className={styles.answers}>
-                    <p>{data.answers}</p>
+                    <p>{data.answer}</p>
                 </div>
             </div>
         ))}
         </Container>
     )
 }
+
+export {FAQ}
