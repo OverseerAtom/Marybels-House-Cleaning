@@ -21,8 +21,8 @@ public class FaqController {
         "We do clean AirBnB homes, but please contact us to discuss a proper rate as each property has a different quote."));
         faqs.add(new FAQ("What times is best to contact you?", 
         "Our time business hours is the best time to contact us. You can find it on the contact page, or you can go to our website's footer. We do not answer calls past those times so please leave a message after hours."));
-
+        faqs.add(new FAQ("How do you determine your prices?", 
+        "There are a couple of things when deciding the price of the service. The city, type of service, size of house, the amount of bathrooms, and the frequency all get used to estimate a price"));
         return faqs;
     } 
-        
 }
