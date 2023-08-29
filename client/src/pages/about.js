@@ -2,8 +2,8 @@ import React from 'react';
 import { Header } from '../components/js/header';
 import {Footer} from '../components/js/footer'
 
-const Services = () => {
-    return(
+const About = () => {
+    return (
         <React.Fragment>
             <Header/>
             <Footer/>
@@ -11,4 +11,4 @@ const Services = () => {
     )
 }
 
-export {Services}
+export {About}
