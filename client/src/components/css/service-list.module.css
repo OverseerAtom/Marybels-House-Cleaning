@@ -4,24 +4,22 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    width: 1250px;
+    max-width: 1250px;
+}
+.mainContainer svg{
+    color: #ff9fc6;
 }
 
 .titleContainer{
     padding: 40px;
     margin: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
 }
 .header{
-    margin-left: auto;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
 }
 
 .directory{
-    margin-right: auto;
+    margin: 0;
 }
 .directory ul{
     display: flex;
@@ -49,12 +47,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 450px;
-    min-height: 350px;
-    min-width: 350px;
-    max-width: 450px;
+    aspect-ratio: 450/450;
     background-color: rgb(240, 240, 240);
     border-radius: 10px;
     margin: 20px;
 }
-
+.serviceContainer:hover{
+    background-color: #ff9fc6;
+    color: white;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.serviceContainer:hover svg{
+    color: white;
+    transition: 0.4s;
+}

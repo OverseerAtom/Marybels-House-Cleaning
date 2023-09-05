@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import styles from '../css/service-list.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouseChimney, faToilet, faBuilding, faTruckMoving } from '@fortawesome/free-solid-svg-icons';
+import { faHouseChimney, faToilet, faBuilding, faTruckMoving,faBed,faSoap} from '@fortawesome/free-solid-svg-icons';
 
 const ServiceList = () => {
     return (
@@ -21,84 +21,84 @@ const ServiceList = () => {
                     </ul>
                 </div>
             </div>
-                <Row>
-                    <Col md={12}>
-                        <Row>
-                            <Col md={4}>
-                                <div className={styles.serviceContainer}>
-                                    <div className={styles.squareContainer}>
-                                        <div className={styles.square}>
-                                            <FontAwesomeIcon icon={faHouseChimney} size='4x'/>
-                                            <div className={styles.serviceContent}>
-                                                <h4>Regular Cleaning</h4>
-                                            </div>
+            <Row>
+                <Col md={12}>
+                    <Row>
+                    <Col sm={12} md={6} lg={4}>
+                            <div className={styles.serviceContainer}>
+                                <div className={styles.squareContainer}>
+                                    <div className={styles.square}>
+                                        <FontAwesomeIcon icon={faHouseChimney} size='4x'/>
+                                        <div className={styles.serviceContent}>
+                                            <h4>Regular Cleaning</h4>
                                         </div>
                                     </div>
                                 </div>
-                            </Col>
-                            <Col md={4}>
-                                <div className={styles.serviceContainer}>
-                                    <div className={styles.squareContainer}>
-                                        <div className={styles.square}>
-                                            <FontAwesomeIcon icon={faToilet} size='4x'/>
-                                            <div className={styles.serviceContent}>
-                                                <h4>Deep Cleaning</h4>
-                                            </div>
+                            </div>
+                        </Col>
+                        <Col sm={12} md={6} lg={4}>
+                            <div className={styles.serviceContainer}>
+                                <div className={styles.squareContainer}>
+                                    <div className={styles.square}>
+                                        <FontAwesomeIcon icon={faToilet} size='4x'/>
+                                        <div className={styles.serviceContent}>
+                                            <h4>Deep Cleaning</h4>
                                         </div>
                                     </div>
                                 </div>
-                            </Col>
-                            <Col md={4}>
-                                <div className={styles.serviceContainer}>
-                                    <div className={styles.squareContainer}>
-                                        <div className={styles.square}>
-                                            <FontAwesomeIcon icon={faBuilding} size='4x' />
-                                            <div className={styles.serviceContent} >
-                                                <h4>Office Cleaning</h4>
-                                            </div>
+                            </div>
+                        </Col>
+                        <Col sm={12} md={6} lg={4}>
+                            <div className={styles.serviceContainer}>
+                                <div className={styles.squareContainer}>
+                                    <div className={styles.square}>
+                                        <FontAwesomeIcon icon={faBuilding} size='4x' />
+                                        <div className={styles.serviceContent} >
+                                            <h4>Office Cleaning</h4>
                                         </div>
                                     </div>
                                 </div>
-                            </Col>
-                            <Col md={4}>
-                                <div className={styles.serviceContainer}>
-                                    <div className={styles.squareContainer}>
-                                        <div className={styles.square}>
-                                            <FontAwesomeIcon icon={faBuilding} size='4x' />
-                                            <div className={styles.serviceContent} >
-                                                <h4>Office Cleaning</h4>
-                                            </div>
+                            </div>
+                        </Col>
+                        <Col sm={12} md={6} lg={4}>
+                            <div className={styles.serviceContainer}>
+                                <div className={styles.squareContainer}>
+                                    <div className={styles.square}>
+                                        <FontAwesomeIcon icon={faBed} size='4x' />
+                                        <div className={styles.serviceContent} >
+                                            <h4>Airbnb Cleaning</h4>
                                         </div>
                                     </div>
                                 </div>
-                            </Col>
-                            <Col md={4}>
-                                <div className={styles.serviceContainer}>
-                                    <div className={styles.squareContainer}>
-                                        <div className={styles.square}>
-                                            <FontAwesomeIcon icon={faBuilding} size='4x' />
-                                            <div className={styles.serviceContent} >
-                                                <h4>Office Cleaning</h4>
-                                            </div>
+                            </div>
+                        </Col>
+                        <Col sm={12} md={6} lg={4}>
+                            <div className={styles.serviceContainer}>
+                                <div className={styles.squareContainer}>
+                                    <div className={styles.square}>
+                                        <FontAwesomeIcon icon={faTruckMoving} size='4x' />
+                                        <div className={styles.serviceContent} >
+                                            <h4>Moving Clean Up</h4>
                                         </div>
                                     </div>
                                 </div>
-                            </Col>
-                            <Col md={4}>
-                                <div className={styles.serviceContainer}>
-                                    <div className={styles.squareContainer}>
-                                        <div className={styles.square}>
-                                            <FontAwesomeIcon icon={faBuilding} size='4x' />
-                                            <div className={styles.serviceContent} >
-                                                <h4>Office Cleaning</h4>
-                                            </div>
+                            </div>
+                        </Col>
+                        <Col sm={12} md={6} lg={4}>
+                            <div className={styles.serviceContainer}>
+                                <div className={styles.squareContainer}>
+                                    <div className={styles.square}>
+                                        <FontAwesomeIcon icon={faSoap} size='4x' />
+                                        <div className={styles.serviceContent} >
+                                            <h4>Detailed Cleaning</h4>
                                         </div>
                                     </div>
                                 </div>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
+                            </div>
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
         </div>
     );
 };
