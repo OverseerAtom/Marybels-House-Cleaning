@@ -1,6 +1,10 @@
 .mainContainer {
-    margin: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
+    width: 1250px;
 }
 
 .titleContainer{
@@ -9,11 +13,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-left: 40px;
-    margin-right: 40px;
 }
 .header{
     margin-left: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .directory{
@@ -45,8 +49,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-height: 450px;
+    min-height: 350px;
+    min-width: 350px;
+    max-width: 450px;
     background-color: rgb(240, 240, 240);
     border-radius: 10px;
-
+    margin: 20px;
 }
 

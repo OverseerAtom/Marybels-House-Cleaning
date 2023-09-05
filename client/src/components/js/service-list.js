@@ -60,6 +60,42 @@ const ServiceList = () => {
                                     </div>
                                 </div>
                             </Col>
+                            <Col md={4}>
+                                <div className={styles.serviceContainer}>
+                                    <div className={styles.squareContainer}>
+                                        <div className={styles.square}>
+                                            <FontAwesomeIcon icon={faBuilding} size='4x' />
+                                            <div className={styles.serviceContent} >
+                                                <h4>Office Cleaning</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col md={4}>
+                                <div className={styles.serviceContainer}>
+                                    <div className={styles.squareContainer}>
+                                        <div className={styles.square}>
+                                            <FontAwesomeIcon icon={faBuilding} size='4x' />
+                                            <div className={styles.serviceContent} >
+                                                <h4>Office Cleaning</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col md={4}>
+                                <div className={styles.serviceContainer}>
+                                    <div className={styles.squareContainer}>
+                                        <div className={styles.square}>
+                                            <FontAwesomeIcon icon={faBuilding} size='4x' />
+                                            <div className={styles.serviceContent} >
+                                                <h4>Office Cleaning</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Col>
                         </Row>
                     </Col>
                 </Row>
