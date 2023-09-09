@@ -1,0 +1,27 @@
+.mainContainer{
+    margin: 0;
+}
+.mainContainer p{
+    margin: 0;
+}
+.contentContainer{
+    padding: 20px;
+}
+.square{
+    max-width: 400px;
+    background-color: rgb(244, 244, 244);
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+.header{
+    padding: 20px;
+}
+.icon{
+    padding: 15px;
+}
+.description{
+    padding: 20px;
+}
