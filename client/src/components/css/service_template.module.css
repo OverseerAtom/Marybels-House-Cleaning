@@ -1,6 +1,10 @@
 .mainContainer{
-    width: 100%;
     justify-content: center;
+    align-items: center;
+}
+
+.mainContainer p{
+    margin-bottom: 0;
 }
 
 .pageHeader{
@@ -12,7 +16,7 @@
     background-color: rgb(220, 220, 220);
 }
 .pageHeader h1{
-    margin-left: 150px;
+    margin-left: 188px;
 }
 .pageHeader p{
     margin-right: 150px;
@@ -20,11 +24,12 @@
 
 .contentContainer{
     max-width: 1200px;
+    margin: 0 auto;
     padding-top: 30px;
     padding-bottom: 30px;
-    margin-right: 150px;
-    margin-left: 150px;
     text-align: left;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .introContainer{
@@ -38,4 +43,63 @@
 .introContainer h3{
     margin-bottom: 30px;
     font-weight: bold;
+}
+
+.includeContainer{
+    max-width: 1200px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.includeContainer li{
+    padding: 20px;
+    list-style: none;
+    padding-left: 0px;
+}
+.includeContainer li::before{
+    content: "+";
+    padding-right: 20px;
+}
+.includeContainer ul{
+    padding: 0px;
+    padding-right: 0px;
+}
+
+@media screen and (max-width: 1215px) {
+    .pageHeader{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .pageHeader h1 {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .contentContainer{
+        margin: 0;
+    }
+    .includeContainer ul{
+        padding: 0px;
+        padding-right: 0px;
+    }
+    .includeContainer li{
+        padding-left: 0px;
+    }
+    .pageHeader{
+        margin: 0;
+    }
+    .pageHeader h1{
+        font-size: 25px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .pageHeader p{
+        margin-right: 0;
+        text-align: left;
+    }
 }
