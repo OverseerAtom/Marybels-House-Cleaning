@@ -41,6 +41,7 @@
     background-color: #ff9fc6;
     color: white;
     transition: 0.4s;
+    cursor: pointer;
 }
 .square svg{
     color: #ff9fc6;
