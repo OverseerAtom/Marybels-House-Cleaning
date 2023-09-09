@@ -4,19 +4,37 @@
 .mainContainer p{
     margin: 0;
 }
-.contentContainer{
-    display: flex;
-    padding: 20px;
-    max-width: 1200px;
-}
-.square{
-    background-color: rgb(244, 244, 244);
-    flex-direction: column;
+.mainHeader{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
-    border-radius: 20px;
+    padding: 50px;
+}
+.contentContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    max-width: 1200px;
+}
+.square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    aspect-ratio: 450/450;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    margin: 20px;
+}
+.square:hover{
+    background-color: #ff9fc6;
+    color: white;
+    transition: 0.4s;
+}
+.square svg{
+    color: #ff9fc6;
 }
 .header{
     padding: 20px;

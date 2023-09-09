@@ -1,13 +1,17 @@
 import {React} from 'react'
 import styles from '../css/pricing_page.module.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteRight, faCalculator } from '@fortawesome/free-solid-svg-icons'
 
 const PricingPage = () =>{
     return(
         <div className={styles.mainContainer}>
-            <div className={`row ${styles.contentContainer}`}>
-                <div className={`col-md-6 col-sm-12 ${styles.square}`}>
+            <div className={styles.mainHeader}>
+                <h1>Estimate Cleaning Price</h1>
+            </div>
+            <div className={`row ${styles.contentContainer} mx-auto`}>
+                <div className={`col-md-5 col-sm-12 ${styles.square} mr-md-2`}>
                     <div className={styles.icon}>
                         <FontAwesomeIcon icon={faQuoteRight} size="7x"/>
                     </div>
@@ -22,7 +26,7 @@ const PricingPage = () =>{
                     </div>
                     
                 </div>
-                <div className={`col-md-6 col-sm-12 ${styles.square}`}>
+                <div className={`col-md-5 col-sm-12 ${styles.square} ml-md-2`}>
                     <div className={styles.icon}>
                         <FontAwesomeIcon icon={faCalculator} size="7x"/>
                     </div>
