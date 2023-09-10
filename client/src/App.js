@@ -7,6 +7,7 @@ import { Services } from './pages/services';
 import { About } from './pages/about';
 import { BookNow } from './pages/book-now';
 import { PricingQuote } from './pages/pricing-quote-form';
+import { PricingCalculator } from './pages/pricing-calculator';
 function App() {
   return (
   <div className='App'>
@@ -19,6 +20,7 @@ function App() {
         <Route path='/about' element={<About />}/>
         <Route path='/book-now' element={<BookNow />}/>
         <Route path='/pricing/quote' element={<PricingQuote/>}/>
+        <Route path='/pricing/calculator' element={<PricingCalculator/>}/>
       </Routes>
     </Router>
   </div>

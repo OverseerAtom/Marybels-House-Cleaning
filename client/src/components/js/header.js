@@ -10,11 +10,13 @@ const Header = () => {
         setIsOpen(!isOpen)
     }
 
-    const homepage_url = "http://localhost:3000/"
-    const contact_url = "http://localhost:3000/contact"
-    const price_url = "http://localhost:3000/price"
-    const about_url = "http://localhost:3000/about"
-    const book_now_url = "http://localhost:3000/book-now"
+    const homepage_url = process.env.REACT_APP_URL_HOMEPAGE
+    const contact_url = process.env.REACT_APP_URL_CONTACT
+    const price_url = process.env.REACT_APP_URL_PRICING
+    const about_url = process.env.REACT_APP_URL_ABOUT
+    const book_now_url = process.env.REACT_APP_URL_BOOK_NOW
+
+    console.log(process.env.REACT_APP_URL_HOMEPAGE)
 
     const switchPage = (url) => {
         window.location.href = url
