@@ -5,13 +5,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteRight, faCalculator } from '@fortawesome/free-solid-svg-icons'
 
 const PricingPage = () =>{
+    const pricingQuote = process.env.REACT_APP_URL_PRICING_QUOTE
+    const pricingCalculator = process.env.REACT_APP_URL_PRICING_CALCULATOR
+
+    const handleClick = (url) =>{
+        window.location.href = url
+    };
+
+
     return(
         <div className={styles.mainContainer}>
             <div className={styles.mainHeader}>
                 <h1>Estimate Cleaning Price</h1>
             </div>
             <div className={`row ${styles.contentContainer} mx-auto`}>
-                <div className={`col-md-5 col-sm-12 ${styles.square} mr-md-2`}>
+                <div onClick={() => handleClick(pricingQuote)} className={`col-md-5 col-sm-12 ${styles.square} mr-md-2`}>
                     <div className={styles.icon}>
                         <FontAwesomeIcon icon={faQuoteRight} size="7x"/>
                     </div>
@@ -26,7 +34,7 @@ const PricingPage = () =>{
                     </div>
                     
                 </div>
-                <div className={`col-md-5 col-sm-12 ${styles.square} ml-md-2`}>
+                <div onClick={() => handleClick(pricingCalculator)} className={`col-md-5 col-sm-12 ${styles.square} ml-md-2`}>
                     <div className={styles.icon}>
                         <FontAwesomeIcon icon={faCalculator} size="7x"/>
                     </div>
