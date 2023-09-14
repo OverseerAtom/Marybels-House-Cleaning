@@ -10,6 +10,7 @@ const QuoteForm = () => {
 
     const [messageSent, setMessageSent] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
+    const [touchedFields, setTouchedFields] = useState({});
 
     const [formData, setFormData] = useState ({
 
@@ -47,40 +48,59 @@ const QuoteForm = () => {
           return normalCase.charAt(0).toUpperCase() + normalCase.slice(1);
       };
 
-      const handleInputChange = (event) => {
+    const handleInputChange = (event) => {
+    const {name, value} = event.target;
 
-        const {name, value} = event.target;
-    
-        setFormData({
-            ...formData,
-            [name] : value,
-        });
-      };
-    
-      const validateForm = () => {
-        let isValid = true;
-        let errors = {};
-    
-      function validateEmail(email) {
-        var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        return re.test(String(email).toLowerCase());
-      }
-    
-        for (let key in formData) {
-            if (formData[key] === "") {
-                isValid = false;
-                errors[key] = `${camelCaseToNormalCase(key)} is required!`;
-            } else if (key === "email" && !validateEmail(formData[key])) {
-                isValid = false;
-                errors[key] = "Invalid email address!"
-            } else {
-                errors[key] = "";
-            }
+    // Set the new form data
+    setFormData({
+        ...formData,
+        [name]: value,
+    });
+
+    setTouchedFields({
+        ...touchedFields,
+        [name]: true,
+      });
+
+    // Validate the updated field
+    let errors = {...formErrors};
+    if (value === "") {
+        errors[name] = `${camelCaseToNormalCase(name)} is required!`;
+    } else if (name === "email" && !validateEmail(value)) {
+        errors[name] = "Invalid email address!";
+    } else {
+        errors[name] = "";
+    }
+    setFormErrors(errors);
+};
+
+// Moved validateEmail function outside to avoid re-declaration
+function validateEmail(email) {
+    var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return re.test(String(email).toLowerCase());
+}
+
+const validateForm = () => {
+    let isValid = true;
+    let errors = {};
+
+    for (let key in formData) {
+        if (key === "streetAddress2") {
+            continue;
+        } else if (formData[key] === "") {
+            isValid = false;
+            errors[key] = `${camelCaseToNormalCase(key)} is required!`;
+        } else if (key === "email" && !validateEmail(formData[key])) {
+            isValid = false;
+            errors[key] = "Invalid email address!";
+        } else {
+            errors[key] = "";
         }
-    
-        setFormErrors(errors);
-        return isValid;
-      };
+    }
+
+    setFormErrors(errors);
+    return isValid;
+    };
     
 
       const handleSubmit = async (event) => {
@@ -94,6 +114,7 @@ const QuoteForm = () => {
                     setFormSubmitted(true);
                 } else {
                     console.log("Message failed to send. Status code: ", response.status)
+                    toast.error("Message failed to send. Try again later.");
                 }
             }
             catch (error) {
@@ -124,24 +145,26 @@ const QuoteForm = () => {
                                 <FormGroup controlId='formName' className={styles.inputBox}>
                                     <FormControl
                                     type='text'
-                                    name="name"
+                                    name="firstName"
                                     value={FormData.firstName}
                                     onChange={handleInputChange}
                                     placeholder="First Name"
+                                    className={touchedFields.firstName ? (formErrors.firstName ? 'is-invalid' : 'is-valid') : ''}
                                     />
-                                    <div className='text-danger'>{formErrors.firstName}</div>
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.firstName}</div>
                                 </FormGroup>
                             </Col>
                             <Col xs={12} md={6}>
                                 <FormGroup controlId='formName' className={styles.inputBox}>
                                     <FormControl
                                     type='text'
-                                    name="name"
+                                    name="lastName"
                                     value={FormData.lastName}
                                     onChange={handleInputChange}
                                     placeholder="Last Name"
+                                    className={touchedFields.lastName ? (formErrors.lastName ? 'is-invalid' : 'is-valid') : ''}
                                     />
-                                    <div className='text-danger'>{formErrors.lastName}</div>
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.lastName}</div>
                                 </FormGroup>
                             </Col>
                             <Col xs={12}>
@@ -152,23 +175,25 @@ const QuoteForm = () => {
                                     value={FormData.email}
                                     onChange={handleInputChange}
                                     placeholder="Email"
+                                    className={touchedFields.email ? (formErrors.email ? 'is-invalid' : 'is-valid') : ''}
                                     />
-                                    <div className='text-danger'>{formErrors.email}</div>
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.email}</div>
                                 </FormGroup>
                             </Col>
                             <div className={styles.subHeader}>
                                 <h3>Service Information:</h3>
                             </div>
                             <Col xs={12} md={4}>
-                                <FormGroup controlId='squareFeet' className={styles.inputBox}>
+                                <FormGroup controlId='bedrooms' className={styles.inputBox}>
                                     <FormControl
                                     as="select"
-                                    name="squareFeet"
+                                    name="bedrooms"
                                     value={FormData.bedrooms}
                                     onChange={handleInputChange}
                                     placeholder='How many Bedrooms?'
+                                    className={touchedFields.bedrooms ? (formErrors.bedrooms ? 'is-invalid' : 'is-valid') : ''}
                                     >
-                                    <option value="" disabled selected>Select bedrooms</option>
+                                    <option value="" disabled selected>Number of bedrooms</option>
                                     <option value="2">Studio</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -176,7 +201,7 @@ const QuoteForm = () => {
                                     <option value="4">4</option>
                                     <option value="5+">5+</option>
                                     </FormControl>
-                                    <div className='text-danger'>{formErrors.squareFeet}</div>
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.bedrooms}</div>
                                 </FormGroup>
                             </Col>
                             <Col xs={12} md={4}>
@@ -187,6 +212,7 @@ const QuoteForm = () => {
                                     value={FormData.squareFeet}
                                     onChange={handleInputChange}
                                     placeholder="How many square feet?"
+                                    className={touchedFields.squareFeet ? (formErrors.squareFeet ? 'is-invalid' : 'is-valid') : ''}
                                     >
                                     <option value="" disabled selected>Select frequency</option>
                                     <option value="2">Less than 1000sqft</option>
@@ -197,6 +223,7 @@ const QuoteForm = () => {
                                     <option value="5+">3000sqft +</option>
                                     <div className='text-danger'>{formErrors.squareFeet}</div>
                                     </FormControl>
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.squareFeet}</div>
                                 </FormGroup>
                             </Col>
                             <Col xs={12} md={4}>
@@ -207,8 +234,9 @@ const QuoteForm = () => {
                                     value={FormData.frequency}
                                     onChange={handleInputChange}
                                     placeholder="How frequent?"
+                                    className={touchedFields.frequency ? (formErrors.frequency ? 'is-invalid' : 'is-valid') : ''}
                                     >
-                                    <option value="" disabled selected>Select frequency</option>
+                                    <option value="" disabled selected>How frequent?</option>
                                     <option value="2">One time service</option>
                                     <option value="1">1 time a month</option>
                                     <option value="2">2 times a month</option>
@@ -217,6 +245,7 @@ const QuoteForm = () => {
                                     <option value="4">Airbnb</option>
                                     <div className='text-danger'>{formErrors.frequency}</div>
                                     </FormControl>
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.frequency}</div>
                                 </FormGroup>
                             </Col>
                             <div className={styles.subHeader}>
@@ -230,18 +259,20 @@ const QuoteForm = () => {
                                     value={FormData.streetAddress}
                                     onChange={handleInputChange}
                                     placeholder="Street Address"
+                                    className={touchedFields.streetAddress ? (formErrors.streetAddress ? 'is-invalid' : 'is-valid') : ''}
                                     />
-                                    <div className='text-danger'>{formErrors.streetAddress}</div>
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.streetAddress}</div>
                                 </FormGroup>
                             </Col>
                             <Col xs={12}>
                                 <FormGroup controlId='streetAddress2' className={styles.inputBox}>
                                     <FormControl
                                     type='text'
-                                    name="streetAddress"
+                                    name="streetAddress2"
                                     value={FormData.streetAddress2}
                                     onChange={handleInputChange}
                                     placeholder="2nd Street Address"
+                                    className={touchedFields.streetAddress2 ? (formErrors.streetAddress2 ? 'is-invalid' : 'is-valid') : ''}
                                     />
                                     <div className='text-danger'>{formErrors.streetAddress2}</div>
                                 </FormGroup>
@@ -254,25 +285,27 @@ const QuoteForm = () => {
                                     value={FormData.city}
                                     onChange={handleInputChange}
                                     placeholder="City"
+                                    className={touchedFields.city ? (formErrors.city ? 'is-invalid' : 'is-valid') : ''}
                                     />
-                                    <div className='text-danger'>{formErrors.city}</div>
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.city}</div>
                                 </FormGroup>
                             </Col>
                             <Col xs={12} md={6}>
                                 <FormGroup controlId='state' className={styles.inputBox}>
                                     <FormControl
                                     type='text'
-                                    name="city"
+                                    name="state"
                                     value={FormData.state}
                                     onChange={handleInputChange}
                                     placeholder="State"
+                                    className={touchedFields.state ? (formErrors.state ? 'is-invalid' : 'is-valid') : ''}
                                     />
-                                    <div className='text-danger'>{formErrors.state}</div>
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.state}</div>
                                 </FormGroup>
                             </Col>
                         </Row>
+                        <button className={design['button-17']} type='submit' onClick={handleSubmit}>Send Request</button>
                     </Form>
-                    <button className={design['button-17']} onClick={() => handleSubmit}>Send Request</button>
                 </Container>
             </div>
         </div>

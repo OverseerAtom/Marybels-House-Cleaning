@@ -56,3 +56,6 @@ textarea:focus::placeholder {
   color: #aaa;
   border-color: #ffa500;
 }
+.textDangerLeft {
+    text-align: left;
+}
