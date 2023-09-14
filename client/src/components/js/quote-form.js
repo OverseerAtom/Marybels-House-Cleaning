@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Form, FormGroup, FormControl, Row, Col, Container } from "react-bootstrap";
 import { ToastContainer, toast } from 'react-toastify';
 import design from '../css/button.module.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const QuoteForm = () => {
