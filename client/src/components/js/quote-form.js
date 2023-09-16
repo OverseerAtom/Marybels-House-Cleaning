@@ -108,7 +108,7 @@ const validateForm = () => {
         event.preventDefault();
         if (validateForm()) {
             try {
-                const response = await axios.post("");
+                const response = await axios.post("http://localhost:8080/api/quote", formData);
 
                 if(response.status === 200 || response.status === 201) {
                     setMessageSent(true);
