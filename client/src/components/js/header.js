@@ -10,8 +10,18 @@ const Header = () => {
     const toggleMenu = () => {
         setIsOpen(!isOpen)
     }
-    const home_url = 'http://localhost:3000/'
-    const contact_url = 'http://localhost:3000/contact'
+
+    const homepage_url = process.env.REACT_APP_URL_HOMEPAGE
+    const contact_url = process.env.REACT_APP_URL_CONTACT
+    const price_url = process.env.REACT_APP_URL_PRICING
+    const about_url = process.env.REACT_APP_URL_ABOUT
+    const book_now_url = process.env.REACT_APP_URL_BOOK_NOW
+
+    console.log(process.env.REACT_APP_URL_HOMEPAGE)
+
+    const switchPage = (url) => {
+        window.location.href = url
+    }
 
     return (
         <div className={styles.mainHeader}>
@@ -19,32 +29,38 @@ const Header = () => {
                 <div className={styles.leftContentcontainer}>
                     <nav className={styles.leftContent}>
                         <ul>
-                            <li>Pricing</li>
+                            <a href={price_url}>
+                                <li>Pricing</li>
+                            </a>
                             <li>Services</li>
-                            <li>About</li>
+                            <a href={about_url}>
+                                <li>About</li>
+                            </a>
                         </ul>
                     </nav>
                 </div>
                 <div className={styles.mediumContentContainer}>
                     <nav className={styles.leftContent}>
                         <ul>
-                            <li>Pricing</li>
+                            <a href={price_url}>
+                                <li>Pricing</li>
+                            </a>
                             <li>Services</li>
-                            <li>About</li>
-                            <li>
-                                <a href={contact_url}>
-                                    Contact
-                                </a>
-                            </li>
+                            <a href={about_url}>
+                                <li>About</li>
+                            </a>
+                            <a href={contact_url}>
+                                <li>Contact</li>
+                            </a>
                             <li>Email</li>
-                            <li>Book Now</li>
+                            <a href={book_now_url}>
+                                <li>Book Now</li>
+                            </a>
                         </ul>
                     </nav>
                 </div>
                 <div className={styles.middleContentcontainer}>
-                    <a href={home_url}>
-                        <img src={logo} alt="logo"></img>
-                    </a>
+                    <img src={logo} alt="logo" onClick={() => switchPage(homepage_url)}></img>
                 </div>
                 <div className={styles.sandwich} onClick={toggleMenu}>
                     <FontAwesomeIcon icon={faBars} size="lg" />
@@ -52,16 +68,20 @@ const Header = () => {
                 {isOpen && (
                     <div className={styles.overlay}>
                     <ul className={styles.menuList}>
-                        <li>Pricing</li>
+                        <a href={price_url}>
+                            <li>Pricing</li>
+                        </a>
                         <li>Services</li>
-                        <li>About</li>
-                        <li>
-                            <a href={contact_url}>
-                                Contact
-                            </a>
-                        </li>
+                        <a href={about_url}>
+                            <li>About</li>
+                        </a>
+                        <a href={contact_url}>
+                            <li>Contact</li>
+                        </a>
                         <li>Email</li>
-                        <li>Book Now</li>
+                        <a href={book_now_url}>
+                            <li>Book Now</li>
+                        </a>
                     </ul>
                     </div>
                 )}
@@ -69,12 +89,12 @@ const Header = () => {
                     <nav className={styles.rightContent}>
                         <ul>
                             <li>Email</li>
-                            <li>Book Now</li>
-                            <li>
-                            <a href={contact_url}>
-                                Contact
+                            <a href={book_now_url}>
+                                <li>Book Now</li>
                             </a>
-                            </li>
+                            <a href={contact_url}>
+                                <li>Contact</li>
+                            </a>
                         </ul>
                     </nav>
                 </div>

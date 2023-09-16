@@ -1,0 +1,63 @@
+.mainContainer{
+    margin: 0;
+}
+.mainContainer p{
+    margin: 0;
+}
+.mainHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+.contentContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+    padding-bottom: 60px;
+    max-width: 1200px;
+}
+.contentContainer svg:hover{
+    color: white;
+    transition: 0.4s;
+}
+.square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    aspect-ratio: 450/450;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    margin: 20px;
+}
+.square:hover svg {
+    color: white;
+    transition: 0.4s;
+}
+.square:hover{
+    background-color: #ff9fc6;
+    color: white;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.square svg{
+    color: #ff9fc6;
+}
+.header{
+    padding: 20px;
+}
+.icon{
+    padding: 15px;
+}
+.description{
+    padding: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .mainContainer{
+        padding: 40px;
+    }
+}
