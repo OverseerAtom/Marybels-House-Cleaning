@@ -1,71 +1,65 @@
-package com.marybelshousecleaning.app.controller;
-import software.amazon.awssdk.services.ses.SesClient;
-import software.amazon.awssdk.services.ses.model.*;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+// package com.marybelshousecleaning.app.controller;
 
-import com.marybelshousecleaning.app.dto.LiveQuoteFormDTO;
+// import software.amazon.awssdk.services.ses.SesClient;
+// import software.amazon.awssdk.services.ses.model.*;
+// import org.springframework.http.HttpStatus;
+// import org.springframework.http.ResponseEntity;
+// import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api")
-@CrossOrigin
-public class LiveQuoteController {
+// import com.marybelshousecleaning.app.dto.LiveQuoteFormDTO;
 
-    private final SesClient sesClient;
+// @RestController
+// @RequestMapping("/api")
+// @CrossOrigin
+// public class LiveQuoteController {
 
-    public LiveQuoteController(SesClient sesClient) {
-        this.sesClient = sesClient;
-    }
+//     private final SesClient sesClient;
 
-    @PostMapping("/quote")
-    public ResponseEntity<String> submitQuote(@RequestBody LiveQuoteFormDTO quoteRequest) {
+//     public LiveQuoteController(SesClient sesClient) {
+//         this.sesClient = sesClient;
+//     }
+
+//     @PostMapping("/quote")
+//     public ResponseEntity<String> submitQuote(@RequestBody LiveQuoteFormDTO quoteRequest) {
         
-        // Validate data
-        if (quoteRequest.getFirstName() == null || quoteRequest.getLastName() == null) {
-            return new ResponseEntity<>("Missing required fields", HttpStatus.BAD_REQUEST);
-        }
+//         // Validate data
+//         if (quoteRequest.getFirstName() == null || quoteRequest.getLastName() == null) {
+//             return new ResponseEntity<>("Missing required fields", HttpStatus.BAD_REQUEST);
+//         }
 
-        // Generate the email body
-        String emailBody = generateEmailBody(quoteRequest);
+//         // Send email via AWS Simple Email Service (SES) using a template
+//         sendNotificationEmail(quoteRequest);
+
+//         return new ResponseEntity<>("Quote submitted successfully", HttpStatus.OK);
+//     }
+
+//     private void sendNotificationEmail(LiveQuoteFormDTO quoteRequest) {
+//         SendTemplatedEmailRequest request = SendTemplatedEmailRequest.builder()
+//                 .destination(Destination.builder()
+//                         .toAddresses("gonzales5123@live.com")
+//                         .build())
+//                 .template()
+//                 .templateData(templateData(quoteRequest))
+//                 .source("gonzales5123@live.com")
+//                 .build();
         
-        // Send email via AWS Simple Email Service (SES)
-        sendNotificationEmail(emailBody);
+//         sesClient.sendTemplatedEmail(request);
+//     }
 
-        return new ResponseEntity<>("Quote submitted successfully", HttpStatus.OK);
-    }
-
-    private String generateEmailBody(LiveQuoteFormDTO quoteRequest) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("You have a new quote request from: ").append(quoteRequest.getFirstName()).append("\n");
-        sb.append("Email: ").append(quoteRequest.getEmail()).append("\n");
-        sb.append("Phone: ").append(quoteRequest.getPhone()).append("\n");
-        sb.append("Service Type: ").append(quoteRequest.getServiceType()).append("\n");
-        // Add other fields similarly
-        return sb.toString();
-    }
-
-    private void sendNotificationEmail(String emailBody) {
-        SendEmailRequest request = SendEmailRequest.builder()
-                .destination(Destination.builder()
-                        .toAddresses("your_email@example.com")
-                        .build())
-                .message(Message.builder()
-                        .body(Body.builder()
-                                .text(Content.builder()
-                                        .charset("UTF-8")
-                                        .data(emailBody)
-                                        .build())
-                                .build())
-                        .subject(Content.builder()
-                                .charset("UTF-8")
-                                .data("New Quote Request")
-                                .build())
-                        .build())
-                .source("noreply@example.com")
-                .build();
-        sesClient.sendEmail(request);
-    }
-}
+//     private String templateData(LiveQuoteFormDTO quoteRequest) {
+//         return String.format("{\"firstName\":\"%s\",\"lastName\":\"%s\",\"email\":\"%s\",\"phone\":\"%s\",\"serviceType\":\"%s\"}",
+//         quoteRequest.getFirstName(),
+//         quoteRequest.getLastName(),
+//         quoteRequest.getEmail(),
+//         quoteRequest.getBedrooms(),
+//         quoteRequest.getSquareFeet(),
+//         quoteRequest.getFrequency(),
+//         quoteRequest.getStreetAddress(),
+//         quoteRequest.getStreetAddress2(),
+//         quoteRequest.getCity(),
+//         quoteRequest.getState(),
+//         quoteRequest.getZipcode());
+//     }
+// }
 
 
