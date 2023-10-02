@@ -23,11 +23,13 @@ public class LiveQuoteController {
     public ResponseEntity<String> submitQuote(@RequestBody LiveQuoteFormDTO quoteRequest) {
         
         // Validate data
+        System.out.println("Validating Email...");
         if (quoteRequest.getFirstName() == null || quoteRequest.getLastName() == null) {
             return new ResponseEntity<>("Missing required fields", HttpStatus.BAD_REQUEST);
         }
 
         // Send email via AWS Simple Email Service (SES) using a template
+        System.out.println("Sending Email...");
         sendNotificationEmail(quoteRequest);
 
         return new ResponseEntity<>("Quote submitted successfully", HttpStatus.OK);
@@ -44,6 +46,7 @@ public class LiveQuoteController {
                 .build();
         
         sesClient.sendTemplatedEmail(request);
+        System.out.println("Email template is being created for client");
     }
 
     private String templateData(LiveQuoteFormDTO quoteRequest) {
@@ -61,5 +64,3 @@ public class LiveQuoteController {
         quoteRequest.getZipcode());
     }
 }
-
-
