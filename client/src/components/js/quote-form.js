@@ -75,42 +75,46 @@ const QuoteForm = () => {
     setFormErrors(errors);
 };
 
-// Moved validateEmail function outside to avoid re-declaration
-function validateEmail(email) {
-    var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return re.test(String(email).toLowerCase());
-}
-
-const validateForm = () => {
-    let isValid = true;
-    let errors = {};
-
-    for (let key in formData) {
-        if (key === "streetAddress2") {
-            continue;
-        } else if (formData[key] === "") {
-            isValid = false;
-            errors[key] = `${camelCaseToNormalCase(key)} is required!`;
-        } else if (key === "email" && !validateEmail(formData[key])) {
-            isValid = false;
-            errors[key] = "Invalid email address!";
-        } else {
-            errors[key] = "";
-        }
+    // Moved validateEmail function outside to avoid re-declaration
+    function validateEmail(email) {
+        var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return re.test(String(email).toLowerCase());
     }
 
-    setFormErrors(errors);
-    return isValid;
-    };
+    const validateForm = () => {
+        let isValid = true;
+        let errors = {};
+
+        for (let key in formData) {
+            if (key === "streetAddress2") {
+                continue;
+            } else if (formData[key] === "") {
+                isValid = false;
+                errors[key] = `${camelCaseToNormalCase(key)} is required!`;
+            } else if (key === "email" && !validateEmail(formData[key])) {
+                isValid = false;
+                errors[key] = "Invalid email address!";
+            } else {
+                errors[key] = "";
+            }
+        }
+
+        setFormErrors(errors);
+        console.log("Validation Result:", errors)
+        return isValid;
+        };
     
 
-      const handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {
+        console.log("handle submit trigger");
         event.preventDefault();
         if (validateForm()) {
             try {
-                const response = await axios.post("http://localhost:8080/api/quote", formData);
+                console.log("Fetching Data...")
+                const response = await axios.post("http://localhost:8080/api/submitForm", formData);
 
                 if(response.status === 200 || response.status === 201) {
+                    console.log("MessageSent")
                     setMessageSent(true);
                     setFormSubmitted(true);
                 } else {
@@ -124,7 +128,7 @@ const validateForm = () => {
             }
             
         }
-      };
+    };
     
     return(
         <div className={styles.mainContainer} class="container-fluid px-5 py-2 mx-auto" style={{ maxWidth: '1360px', margin: '40px 0px 40px 0px' }}>
@@ -304,8 +308,21 @@ const validateForm = () => {
                                     <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.state}</div>
                                 </FormGroup>
                             </Col>
+                            <Col xs={12} md={6}>
+                                <FormGroup controlId='zipcode' className={styles.zipCode}>
+                                    <FormControl
+                                    type='text'
+                                    name="zipCode"
+                                    value={FormData.zipCode}
+                                    onChange={handleInputChange}
+                                    placeholder="Zip Code"
+                                    className={touchedFields.zipCode ? (formErrors.zipCode ? 'is-invalid' : 'is-valid') : ''}
+                                    />
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.zipCode}</div>
+                                </FormGroup>
+                            </Col>
                         </Row>
-                        <button className={design['button-17']} type='submit' onClick={handleSubmit}>Send Request</button>
+                        <button className={design['button-17']} type='submit'>Send Request</button>
                     </Form>
                 </Container>
             </div>

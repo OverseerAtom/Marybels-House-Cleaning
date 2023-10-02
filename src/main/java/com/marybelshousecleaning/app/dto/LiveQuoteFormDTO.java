@@ -11,7 +11,7 @@ public class LiveQuoteFormDTO {
     private String streetAddress2;
     private String city;
     private String state;
-    private String zipcode;
+    private String zipCode;
 
 
 
@@ -79,11 +79,9 @@ public class LiveQuoteFormDTO {
         this.state = state;
     }
     public String getZipcode () {
-        return zipcode;
+        return zipCode;
     }
-    public void setZipcode (String zipcode) {
-        this.zipcode = zipcode;
+    public void setZipcode (String zipCode) {
+        this.zipCode = zipCode;
     }
-
-
 }
