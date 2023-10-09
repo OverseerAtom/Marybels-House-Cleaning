@@ -11,8 +11,9 @@ import com.marybelshousecleaning.app.dto.LiveQuoteFormDTO;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
-public class LiveQuoteController {
 
+public class LiveQuoteController {
+    
     private final SesClient sesClient;
 
     public LiveQuoteController(SesClient sesClient) {
@@ -21,18 +22,37 @@ public class LiveQuoteController {
 
     @PostMapping("/quote")
     public ResponseEntity<String> submitQuote(@RequestBody LiveQuoteFormDTO quoteRequest) {
-        
+
         // Validate data
-        System.out.println("Validating Email...");
-        if (quoteRequest.getFirstName() == null || quoteRequest.getLastName() == null) {
-            return new ResponseEntity<>("Missing required fields", HttpStatus.BAD_REQUEST);
+        System.out.println("Validating Email Data...");
+        String validationError = validateQuoteData(quoteRequest);
+        if (validationError == null) {
+            return new ResponseEntity<>(validationError, HttpStatus.BAD_REQUEST);
         }
 
         // Send email via AWS Simple Email Service (SES) using a template
         System.out.println("Sending Email...");
-        sendNotificationEmail(quoteRequest);
+        try {
+            sendNotificationEmail(quoteRequest);
+            return new ResponseEntity<>("Quote submitted successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println("Error sending email: " + e.getMessage());
+            return new ResponseEntity<>("Failed to send email", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
-        return new ResponseEntity<>("Quote submitted successfully", HttpStatus.OK);
+    private String validateQuoteData(LiveQuoteFormDTO quoteRequest) {
+        if (quoteRequest.getFirstName() == null) return "Missing firstName";
+        if (quoteRequest.getLastName() == null) return "Missing lastName";
+        if (quoteRequest.getEmail() == null) return "Missing email";
+        if (quoteRequest.getBedrooms() == null) return "Missing bedrooms";
+        if (quoteRequest.getSquareFeet() == null) return "Missing squareFeet";
+        if (quoteRequest.getFrequency() == null) return "Missing frequency";
+        if (quoteRequest.getStreetAddress() == null) return "Missing streetAddress";
+        if (quoteRequest.getCity() == null) return "Missing city";
+        if (quoteRequest.getState() == null) return "Missing state";
+        if (quoteRequest.getZipcode() == null) return "Missing zipCode";
+        return null;
     }
 
     private void sendNotificationEmail(LiveQuoteFormDTO quoteRequest) {
@@ -40,7 +60,7 @@ public class LiveQuoteController {
                 .destination(Destination.builder()
                         .toAddresses("gonzales5123@live.com")
                         .build())
-                .template("LiveQuoteEmail")
+                .template("SimpleQuoteEmail")
                 .templateData(templateData(quoteRequest))
                 .source("gonzales5123@live.com")
                 .build();
@@ -48,9 +68,9 @@ public class LiveQuoteController {
         sesClient.sendTemplatedEmail(request);
         System.out.println("Email template is being created for client");
     }
-
+    
     private String templateData(LiveQuoteFormDTO quoteRequest) {
-        return String.format("{\"firstName\":\"%s\",\"lastName\":\"%s\",\"email\":\"%s\",\"phone\":\"%s\",\"serviceType\":\"%s\"}",
+        return String.format("{\"firstName\":\"%s\",\"lastName\":\"%s\",\"email\":\"%s\",\"bedrooms\":\"%s\",\"squareFeet\":\"%s\",\"frequency\":\"%s\",\"streetAddress\":\"%s\",\"streetAddress2\":\"%s\",\"city\":\"%s\",\"state\":\"%s\",\"zipcode\":\"%s\"}",
         quoteRequest.getFirstName(),
         quoteRequest.getLastName(),
         quoteRequest.getEmail(),
@@ -62,5 +82,5 @@ public class LiveQuoteController {
         quoteRequest.getCity(),
         quoteRequest.getState(),
         quoteRequest.getZipcode());
-    }
+    }    
 }

@@ -1,8 +1,8 @@
 package com.marybelshousecleaning.app.dto;
 
 public class LiveQuoteFormDTO {
-    private String FirstName;
-    private String LastName;
+    private String firstName;
+    private String lastName;
     private String email;
     private String bedrooms;
     private String squareFeet;
@@ -16,17 +16,17 @@ public class LiveQuoteFormDTO {
 
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String FirstName) {
-        this.FirstName = FirstName;
+        this.firstName = FirstName;
     }
     public String getLastName () {
-        return LastName;
+        return lastName;
     }
     public void setLastName(String LastName) {
-        this.LastName = LastName;
+        this.lastName = LastName;
     }
     public String getEmail() {
         return email;
@@ -75,7 +75,7 @@ public class LiveQuoteFormDTO {
     public String getState () {
         return state;
     }
-    public void getState (String state) {
+    public void setState (String state) {
         this.state = state;
     }
     public String getZipcode () {

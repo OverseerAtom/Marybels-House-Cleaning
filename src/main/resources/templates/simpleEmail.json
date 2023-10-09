@@ -1,0 +1,6 @@
+{
+    "TemplateName": "SimpleQuoteEmail",
+    "SubjectPart": "New Quote Submitted",
+    "TextPart": "New Customer Requesting Quote",
+    "HtmlPart": "<html><body><h2>New Quote Submitted</h2><p>Dear [Recipient Name],</p><p>A new customer has expressed interest in receiving a live quote. Please review their details and provide them with an accurate estimate at your earliest convenience.</p><p>Regards,</p><p>Your Company Team</p></body></html>"
+}
