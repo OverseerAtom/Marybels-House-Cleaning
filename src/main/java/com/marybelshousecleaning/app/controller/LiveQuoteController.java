@@ -60,17 +60,23 @@ public class LiveQuoteController {
                 .destination(Destination.builder()
                         .toAddresses("gonzales5123@live.com")
                         .build())
-                .template("SimpleQuoteEmail")
+                .template("LiveQuoteEmail")
                 .templateData(templateData(quoteRequest))
                 .source("gonzales5123@live.com")
                 .build();
         
-        sesClient.sendTemplatedEmail(request);
+        try {
+            SendTemplatedEmailResponse response = sesClient.sendTemplatedEmail(request);
+            System.out.println("SES Response: " + response.toString());
+        } catch (SesException e) {
+            System.out.println("Error while sending email: " + e.awsErrorDetails().errorMessage());
+        }
         System.out.println("Email template is being created for client");
     }
     
+    
     private String templateData(LiveQuoteFormDTO quoteRequest) {
-        return String.format("{\"firstName\":\"%s\",\"lastName\":\"%s\",\"email\":\"%s\",\"bedrooms\":\"%s\",\"squareFeet\":\"%s\",\"frequency\":\"%s\",\"streetAddress\":\"%s\",\"streetAddress2\":\"%s\",\"city\":\"%s\",\"state\":\"%s\",\"zipcode\":\"%s\"}",
+        return String.format("{\"firstName\":\"%s\",\"lastName\":\"%s\",\"email\":\"%s\",\"bedrooms\":\"%s\",\"squareFeet\":\"%s\",\"frequency\":\"%s\",\"streetAddress\":\"%s\",\"streetAddress2\":\"%s\",\"city\":\"%s\",\"state\":\"%s\",\"zipCode\":\"%s\"}",
         quoteRequest.getFirstName(),
         quoteRequest.getLastName(),
         quoteRequest.getEmail(),
@@ -82,5 +88,5 @@ public class LiveQuoteController {
         quoteRequest.getCity(),
         quoteRequest.getState(),
         quoteRequest.getZipcode());
-    }    
+    }
 }
