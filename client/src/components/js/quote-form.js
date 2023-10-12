@@ -322,9 +322,11 @@ const QuoteForm = () => {
                                 </FormGroup>
                             </Col>
                         </Row>
-                        <button className={design['button-17']} type='submit'>Send Request</button>
                     </Form>
                 </Container>
+                <div className={styles.button}>
+                    <button className={design['button-17']} type='submit'>Send Request</button>
+                </div>
             </div>
         </div>
     )
