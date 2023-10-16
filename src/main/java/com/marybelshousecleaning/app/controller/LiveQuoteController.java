@@ -26,7 +26,7 @@ public class LiveQuoteController {
         // Validate data
         System.out.println("Validating Email Data...");
         String validationError = validateQuoteData(quoteRequest);
-        if (validationError == null) {
+        if (validationError != null) {
             return new ResponseEntity<>(validationError, HttpStatus.BAD_REQUEST);
         }
 
@@ -46,12 +46,13 @@ public class LiveQuoteController {
         if (quoteRequest.getLastName() == null) return "Missing lastName";
         if (quoteRequest.getEmail() == null) return "Missing email";
         if (quoteRequest.getBedrooms() == null) return "Missing bedrooms";
+        if (quoteRequest.getBathrooms() == null) return "Missing Bathrooms";
         if (quoteRequest.getSquareFeet() == null) return "Missing squareFeet";
         if (quoteRequest.getFrequency() == null) return "Missing frequency";
         if (quoteRequest.getStreetAddress() == null) return "Missing streetAddress";
         if (quoteRequest.getCity() == null) return "Missing city";
         if (quoteRequest.getState() == null) return "Missing state";
-        if (quoteRequest.getZipcode() == null) return "Missing zipCode";
+        if (quoteRequest.getZipCode() == null) return "Missing ZipCode";
         return null;
     }
 
@@ -76,17 +77,18 @@ public class LiveQuoteController {
     
     
     private String templateData(LiveQuoteFormDTO quoteRequest) {
-        return String.format("{\"firstName\":\"%s\",\"lastName\":\"%s\",\"email\":\"%s\",\"bedrooms\":\"%s\",\"squareFeet\":\"%s\",\"frequency\":\"%s\",\"streetAddress\":\"%s\",\"streetAddress2\":\"%s\",\"city\":\"%s\",\"state\":\"%s\",\"zipCode\":\"%s\"}",
+        return String.format("{\"firstName\":\"%s\",\"lastName\":\"%s\",\"email\":\"%s\",\"bedrooms\":\"%s\",\"bathrooms\":\"%s\",\"squareFeet\":\"%s\",\"frequency\":\"%s\",\"streetAddress\":\"%s\",\"streetAddress2\":\"%s\",\"city\":\"%s\",\"state\":\"%s\",\"zipCode\":\"%s\"}",
         quoteRequest.getFirstName(),
         quoteRequest.getLastName(),
         quoteRequest.getEmail(),
         quoteRequest.getBedrooms(),
+        quoteRequest.getBathrooms(),
         quoteRequest.getSquareFeet(),
         quoteRequest.getFrequency(),
         quoteRequest.getStreetAddress(),
         quoteRequest.getStreetAddress2(),
         quoteRequest.getCity(),
         quoteRequest.getState(),
-        quoteRequest.getZipcode());
+        quoteRequest.getZipCode());
     }
 }

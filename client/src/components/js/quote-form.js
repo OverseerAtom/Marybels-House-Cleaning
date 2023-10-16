@@ -19,6 +19,7 @@ const QuoteForm = () => {
         lastName: "",
         email: "",
         bedrooms: "",
+        bathrooms: "",
         squareFeet: "",
         frequency: "",
         streetAddress: "",
@@ -34,6 +35,7 @@ const QuoteForm = () => {
         lastName: "",
         email: "",
         bedrooms: "",
+        bathrooms: "",
         squareFeet: "",
         frequency: "",
         streetAddress: "",
@@ -117,6 +119,7 @@ const QuoteForm = () => {
                     console.log("MessageSent")
                     setMessageSent(true);
                     setFormSubmitted(true);
+                    toast.success("Message has been sent!")
                 } else {
                     console.log("Message failed to send. Status code: ", response.status)
                     toast.error("Message failed to send. Try again later.");
@@ -126,7 +129,6 @@ const QuoteForm = () => {
                 console.error(error);
                 toast.error("Message failed to send. Try again later.")
             }
-            
         }
     };
     
@@ -188,7 +190,7 @@ const QuoteForm = () => {
                             <div className={styles.subHeader}>
                                 <h3>Service Information:</h3>
                             </div>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={6}>
                                 <FormGroup controlId='bedrooms' className={styles.inputBox}>
                                     <FormControl
                                     as="select"
@@ -199,17 +201,38 @@ const QuoteForm = () => {
                                     className={touchedFields.bedrooms ? (formErrors.bedrooms ? 'is-invalid' : 'is-valid') : ''}
                                     >
                                     <option value="" disabled selected>Number of bedrooms</option>
-                                    <option value="2">Studio</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5+">5+</option>
+                                    <option value="Studio">Studio</option>
+                                    <option value="1 bedroom">1</option>
+                                    <option value="2 bedroom">2</option>
+                                    <option value="3 bedroom">3</option>
+                                    <option value="4 bedroom">4</option>
+                                    <option value="5+ bedroom">5+</option>
                                     </FormControl>
                                     <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.bedrooms}</div>
                                 </FormGroup>
                             </Col>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={6}>
+                                <FormGroup controlId='bathrooms' className={styles.inputBox}>
+                                    <FormControl
+                                    as="select"
+                                    name="bathrooms"
+                                    value={FormData.bathrooms}
+                                    onChange={handleInputChange}
+                                    placeholder='How many bathrooms?'
+                                    className={touchedFields.bathrooms ? (formErrors.bathrooms ? 'is-invalid' : 'is-valid') : ''}
+                                    >
+                                    <option value="" disabled selected>Number of bathrooms</option>
+                                    <option value="None">None</option>
+                                    <option value="1 bathroom">1 bathroom</option>
+                                    <option value="2 bathrooms">2 bathrooms</option>
+                                    <option value="3 bathrooms">3 bathrooms</option>
+                                    <option value="4 bathrooms">4 bathrooms</option>
+                                    <option value="5+ bathroom">5+ bathrooms</option>
+                                    </FormControl>
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.bathrooms}</div>
+                                </FormGroup>
+                            </Col>
+                            <Col xs={12} md={6}>
                                 <FormGroup controlId='squareFeet' className={styles.inputBox}>
                                     <FormControl
                                     as='select'
@@ -219,19 +242,19 @@ const QuoteForm = () => {
                                     placeholder="How many square feet?"
                                     className={touchedFields.squareFeet ? (formErrors.squareFeet ? 'is-invalid' : 'is-valid') : ''}
                                     >
-                                    <option value="" disabled selected>Select frequency</option>
-                                    <option value="2">Less than 1000sqft</option>
-                                    <option value="1">1000 - 15000sqft</option>
-                                    <option value="2">1500 - 2000sqft</option>
-                                    <option value="3">2000 - 2500 sqft</option>
-                                    <option value="4">2500 - 3000sqft</option>
-                                    <option value="5+">3000sqft +</option>
+                                    <option value="" disabled selected>Select house size</option>
+                                    <option value="Less than 1000sqft">Less than 1000sqft</option>
+                                    <option value="1000 - 15000sqft">1000 - 15000sqft</option>
+                                    <option value="1500 - 2000sqft">1500 - 2000sqft</option>
+                                    <option value="2000 - 2500 sqft">2000 - 2500 sqft</option>
+                                    <option value="2500 - 3000sqft">2500 - 3000sqft</option>
+                                    <option value="3000sqft +">3000sqft +</option>
                                     <div className='text-danger'>{formErrors.squareFeet}</div>
                                     </FormControl>
                                     <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.squareFeet}</div>
                                 </FormGroup>
                             </Col>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={6}>
                                 <FormGroup controlId='frequency' className={styles.inputBox}>
                                     <FormControl
                                     as="select"
@@ -242,12 +265,12 @@ const QuoteForm = () => {
                                     className={touchedFields.frequency ? (formErrors.frequency ? 'is-invalid' : 'is-valid') : ''}
                                     >
                                     <option value="" disabled selected>How frequent?</option>
-                                    <option value="2">One time service</option>
-                                    <option value="1">1 time a month</option>
-                                    <option value="2">2 times a month</option>
-                                    <option value="3">3 times a month</option>
-                                    <option value="3">4+ times a month</option>
-                                    <option value="4">Airbnb</option>
+                                    <option value="One time service">One time service</option>
+                                    <option value="1 time a month">1 time a month</option>
+                                    <option value="2 times a month">2 times a month</option>
+                                    <option value="3 times a month">3 times a month</option>
+                                    <option value="4 times a month">4+ times a month</option>
+                                    <option value="Airbnb">Airbnb</option>
                                     <div className='text-danger'>{formErrors.frequency}</div>
                                     </FormControl>
                                     <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.frequency}</div>
@@ -322,11 +345,11 @@ const QuoteForm = () => {
                                 </FormGroup>
                             </Col>
                         </Row>
+                        <div className={styles.button}>
+                            <button className={design['button-17']} type='submit'>Send Request</button>
+                        </div>
                     </Form>
                 </Container>
-                <div className={styles.button}>
-                    <button className={design['button-17']} type='submit'>Send Request</button>
-                </div>
             </div>
         </div>
     )
