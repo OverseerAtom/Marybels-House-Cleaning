@@ -45,6 +45,7 @@ public class LiveQuoteController {
         if (quoteRequest.getFirstName() == null) return "Missing firstName";
         if (quoteRequest.getLastName() == null) return "Missing lastName";
         if (quoteRequest.getEmail() == null) return "Missing email";
+        if (quoteRequest.getPhoneNumber() == null) return "Missing phoneNumbers";
         if (quoteRequest.getBedrooms() == null) return "Missing bedrooms";
         if (quoteRequest.getBathrooms() == null) return "Missing Bathrooms";
         if (quoteRequest.getSquareFeet() == null) return "Missing squareFeet";
@@ -77,10 +78,11 @@ public class LiveQuoteController {
     
     
     private String templateData(LiveQuoteFormDTO quoteRequest) {
-        return String.format("{\"firstName\":\"%s\",\"lastName\":\"%s\",\"email\":\"%s\",\"bedrooms\":\"%s\",\"bathrooms\":\"%s\",\"squareFeet\":\"%s\",\"frequency\":\"%s\",\"streetAddress\":\"%s\",\"streetAddress2\":\"%s\",\"city\":\"%s\",\"state\":\"%s\",\"zipCode\":\"%s\"}",
+        return String.format("{\"firstName\":\"%s\",\"lastName\":\"%s\",\"email\":\"%s\",\"phoneNumber\":\"%s\",\"bedrooms\":\"%s\",\"bathrooms\":\"%s\",\"squareFeet\":\"%s\",\"frequency\":\"%s\",\"streetAddress\":\"%s\",\"streetAddress2\":\"%s\",\"city\":\"%s\",\"state\":\"%s\",\"zipCode\":\"%s\"}",
         quoteRequest.getFirstName(),
         quoteRequest.getLastName(),
         quoteRequest.getEmail(),
+        quoteRequest.getPhoneNumber(),
         quoteRequest.getBedrooms(),
         quoteRequest.getBathrooms(),
         quoteRequest.getSquareFeet(),

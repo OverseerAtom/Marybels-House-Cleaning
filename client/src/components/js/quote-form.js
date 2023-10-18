@@ -18,6 +18,7 @@ const QuoteForm = () => {
         firstName: "",
         lastName: "",
         email: "",
+        phoneNumber: "",
         bedrooms: "",
         bathrooms: "",
         squareFeet: "",
@@ -34,6 +35,7 @@ const QuoteForm = () => {
         firstName: "",
         lastName: "",
         email: "",
+        phoneNumber: "",
         bedrooms: "",
         bathrooms: "",
         squareFeet: "",
@@ -90,6 +92,8 @@ const QuoteForm = () => {
         for (let key in formData) {
             if (key === "streetAddress2") {
                 continue;
+            } else if (key === "phoneNumber") {
+                continue;
             } else if (formData[key] === "") {
                 isValid = false;
                 errors[key] = `${camelCaseToNormalCase(key)} is required!`;
@@ -105,7 +109,6 @@ const QuoteForm = () => {
         console.log("Validation Result:", errors)
         return isValid;
         };
-    
 
     const handleSubmit = async (event) => {
         console.log("handle submit trigger");
@@ -174,7 +177,7 @@ const QuoteForm = () => {
                                     <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.lastName}</div>
                                 </FormGroup>
                             </Col>
-                            <Col xs={12}>
+                            <Col xs={12} md={6}>
                                 <FormGroup controlId='email' className={styles.inputBox}>
                                     <FormControl
                                     type='text'
@@ -185,6 +188,20 @@ const QuoteForm = () => {
                                     className={touchedFields.email ? (formErrors.email ? 'is-invalid' : 'is-valid') : ''}
                                     />
                                     <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.email}</div>
+                                </FormGroup>
+                            </Col>
+                            <Col xs={12} md={6}>
+                                <FormGroup controlId='phoneNumber' className={styles.inputBox}>
+                                    <FormControl
+                                    type='tel'
+                                    pattern="[0-9]*"
+                                    name="phoneNumber"
+                                    value={FormData.phoneNumber}
+                                    onChange={handleInputChange}
+                                    placeholder="Phone Number"
+                                    className={touchedFields.phoneNumber ? (formErrors.phoneNumber ? 'is-invalid' : 'is-valid') : ''}
+                                    />
+                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.phoneNumber}</div>
                                 </FormGroup>
                             </Col>
                             <div className={styles.subHeader}>
