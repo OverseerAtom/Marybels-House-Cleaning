@@ -5,6 +5,7 @@ import { Form, FormGroup, FormControl, Row, Col, Container } from "react-bootstr
 import { ToastContainer, toast } from 'react-toastify';
 import design from '../css/button.module.css'
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-phone-number-input/style.css'
 
 
 const QuoteForm = () => {
@@ -56,7 +57,24 @@ const QuoteForm = () => {
     const handleInputChange = (event) => {
     const {name, value} = event.target;
 
-    // Set the new form data
+    let newValue = value;
+    if (name === "phoneNumber") {
+        newValue = value.replace(/\D/g, '');
+        console.log("After stripping:", newValue);  // Debug line
+        if (newValue.length > 3) {
+            newValue = '(' + newValue.substring(0, 3) + ') ' + newValue.substring(3);
+        }
+        if (newValue.length > 9) {
+            newValue = newValue.substring(0, 9) + '-' + newValue.substring(9, 12);
+        }
+        console.log("Formatted:", newValue);  // Debug line
+    }
+    
+    setTouchedFields(prevTouchedFields => ({
+        ...prevTouchedFields,
+        [name]: true,
+    }));
+
     setFormData({
         ...formData,
         [name]: value,
@@ -69,7 +87,7 @@ const QuoteForm = () => {
 
     // Validate the updated field
     let errors = {...formErrors};
-    if (value === "") {
+    if (value === "" && name !== "phoneNumber" && name !== "streetAddress2") {
         errors[name] = `${camelCaseToNormalCase(name)} is required!`;
     } else if (name === "email" && !validateEmail(value)) {
         errors[name] = "Invalid email address!";
@@ -92,10 +110,10 @@ const QuoteForm = () => {
         for (let key in formData) {
             if (key === "streetAddress2") {
                 continue;
-            } else if (key === "phoneNumber") {
+            } else if (key === "phoneNumber" && formData[key] === "") {
                 continue;
             } else if (formData[key] === "") {
-                isValid = false;
+                isValid = false;        
                 errors[key] = `${camelCaseToNormalCase(key)} is required!`;
             } else if (key === "email" && !validateEmail(formData[key])) {
                 isValid = false;
@@ -108,6 +126,13 @@ const QuoteForm = () => {
         setFormErrors(errors);
         console.log("Validation Result:", errors)
         return isValid;
+        };
+
+        const handleKeyPress = (e) => {
+            console.log(e.key);
+            if (e.key !== "Backspace" && !/[0-9]/.test(e.key)) {
+                e.preventDefault();
+            }
         };
 
     const handleSubmit = async (event) => {
@@ -134,7 +159,7 @@ const QuoteForm = () => {
             }
         }
     };
-    
+
     return(
         <div className={styles.mainContainer} class="container-fluid px-5 py-2 mx-auto" style={{ maxWidth: '1360px', margin: '40px 0px 40px 0px' }}>
             <ToastContainer position={toast.POSITION.TOP_CENTER}/>
@@ -197,6 +222,7 @@ const QuoteForm = () => {
                                     pattern="[0-9]*"
                                     name="phoneNumber"
                                     value={FormData.phoneNumber}
+                                    onKeyDown={handleKeyPress}
                                     onChange={handleInputChange}
                                     placeholder="Phone Number"
                                     className={touchedFields.phoneNumber ? (formErrors.phoneNumber ? 'is-invalid' : 'is-valid') : ''}
@@ -219,11 +245,11 @@ const QuoteForm = () => {
                                     >
                                     <option value="" disabled selected>Number of bedrooms</option>
                                     <option value="Studio">Studio</option>
-                                    <option value="1 bedroom">1</option>
-                                    <option value="2 bedroom">2</option>
-                                    <option value="3 bedroom">3</option>
-                                    <option value="4 bedroom">4</option>
-                                    <option value="5+ bedroom">5+</option>
+                                    <option value="1 bedroom">1 bedroom</option>
+                                    <option value="2 bedroom">2 bedrooms</option>
+                                    <option value="3 bedroom">3 bedrooms</option>
+                                    <option value="4 bedroom">4 bedrooms</option>
+                                    <option value="5+ bedroom">5+ bedrooms</option>
                                     </FormControl>
                                     <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.bedrooms}</div>
                                 </FormGroup>
