@@ -161,7 +161,7 @@ const QuoteForm = () => {
     };
 
     return(
-        <div className={styles.mainContainer} class="container-fluid px-5 py-2 mx-auto" style={{ maxWidth: '1360px', margin: '40px 0px 40px 0px' }}>
+        <div className={styles.mainContainer} class="container-fluid px-5 py-2 mx-auto" style={{ margin: '40px 0px 40px 0px' }}>
             <ToastContainer position={toast.POSITION.TOP_CENTER}/>
             <div>
                 <div className={styles.headingBlock}>
