@@ -17,7 +17,7 @@ public class PriceCalculatorControl {
     public static void main(String[] args) {
         HashMap<String, BigDecimal> map = new HashMap<>();
 
-        map.put("SF", new BigDecimal("0.15"));
+        map.put("San Francisco", new BigDecimal("0.15"));
         map.put("Palo Alto", new BigDecimal("0.15"));
         map.put("Los Altos", new BigDecimal("0.15"));
         map.put("Fremont", new BigDecimal("0.12"));
