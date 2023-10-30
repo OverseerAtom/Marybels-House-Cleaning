@@ -16,14 +16,15 @@ const PriceCalculator = () => {
         bathrooms: "",
         squareFeet: "",
         frequency: "",
-        zipCode: "",
+        city: "",
+        estimatedPrice: "",
     });
 
     const [formErrors, setFormErrors] = useState ({
         bedrooms: "",
         bathrooms: "",
         squareFeet: "",
-        frequency: "",
+        city: "",
     });
 
     const camelCaseToNormalCase = (camelCaseString) => {
@@ -102,6 +103,7 @@ const PriceCalculator = () => {
         };
 
     return (
+
         <div className={styles.mainContainer} class="container-fluid px-5 py-2 mx-auto" style={{ maxWidth: '800px', margin: '40px 0px 40px 0px' }}>
             <Container>
                 <Form onSubmit={handleSubmit}>
@@ -190,21 +192,35 @@ const PriceCalculator = () => {
                             </FormGroup>
                         </Col>
                         <Col xs={12}>
-                                <FormGroup controlId='zipcode' className={styles.zipCode}>
-                                    <FormControl
-                                    type='text'
-                                    name="zipCode"
-                                    value={FormData.zipCode}
-                                    maxLength={5}
-                                    pattern='^[0-9]*$'
-                                    onKeyDown={handleKeyPress}
-                                    onChange={handleInputChange}
-                                    placeholder="Zip Code"
-                                    className={touchedFields.zipCode ? (formErrors.zipCode ? 'is-invalid' : 'is-valid') : ''}
-                                    />
-                                    <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.zipCode}</div>
-                                </FormGroup>
-                            </Col>
+                            <FormGroup controlId='city' className={styles.inputBox}>
+                                <FormControl
+                                as="select"
+                                name="City"
+                                value={FormData.city}
+                                onChange={handleInputChange}
+                                placeholder="City"
+                                className={touchedFields.city ? (formErrors.city ? 'is-invalid' : 'is-valid') : ''}
+                                >
+                                <option value="" disabled selected>Select City</option>
+                                <option value="Foster City">Foster City</option>
+                                <option value="Fremont">Fremont</option>
+                                <option value="Dublin">Dublin</option>
+                                <option value="Hayward">Hayward</option>
+                                <option value="Los Altos">Los Altos</option>
+                                <option value="Milpitas">Milpitas</option>
+                                <option value="Newark">Newark</option>
+                                <option value="Palo Alto">Palo Alto</option>
+                                <option value="Pleasanton">Pleasanton</option>
+                                <option value="Santa Clara">Santa Clara</option>
+                                <option value="San Francisco">San Francisco</option>
+                                <option value="San Jose">San Jose</option>
+                                <option value="San Ramon">San Ramon</option>
+                                <option value="Sunnyvale">Sunnyvale</option>
+                                <div className='text-danger'>{formErrors.city}</div>
+                                </FormControl>
+                                <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.city}</div>
+                            </FormGroup>
+                        </Col>
                     </Row>
                     <div className={styles.button}>
                             <button className={design['button-17']} type='submit'>Get Price</button>

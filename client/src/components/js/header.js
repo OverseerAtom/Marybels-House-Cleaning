@@ -16,6 +16,7 @@ const Header = () => {
     const price_url = process.env.REACT_APP_URL_PRICING
     const about_url = process.env.REACT_APP_URL_ABOUT
     const book_now_url = process.env.REACT_APP_URL_BOOK_NOW
+    const services_url = process.env.REACT_APP_URL_SERVICES
 
     console.log(process.env.REACT_APP_URL_HOMEPAGE)
 
@@ -32,7 +33,9 @@ const Header = () => {
                             <a href={price_url}>
                                 <li>Pricing</li>
                             </a>
-                            <li>Services</li>
+                            <a href={services_url}>
+                                <li>Services</li>
+                            </a>
                             <a href={about_url}>
                                 <li>About</li>
                             </a>

@@ -8,6 +8,7 @@ import { About } from './pages/about';
 import { BookNow } from './pages/book-now';
 import { PricingQuote } from './pages/pricing-quote-form';
 import { PricingCalculator } from './pages/pricing-calculator';
+import { FinalPrice } from './pages/final-price';
 function App() {
   return (
   <div className='App'>
@@ -21,6 +22,7 @@ function App() {
         <Route path='/book-now' element={<BookNow />}/>
         <Route path='/pricing/quote' element={<PricingQuote/>}/>
         <Route path='/pricing/calculator' element={<PricingCalculator/>}/>
+        <Route path='/pricing/final-price' element={<FinalPrice/>}/>
       </Routes>
     </Router>
   </div>
