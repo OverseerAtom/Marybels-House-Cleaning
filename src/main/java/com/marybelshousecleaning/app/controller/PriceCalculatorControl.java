@@ -1,5 +1,5 @@
 package com.marybelshousecleaning.app.controller;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.marybelshousecleaning.app.dto.PriceCalculatorDTO;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class PriceCalculatorControl {
     

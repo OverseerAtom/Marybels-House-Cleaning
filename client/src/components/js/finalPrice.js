@@ -4,7 +4,7 @@ import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import design from '../css/button.module.css'
 
-const PriceCalculated = (calculation) => {
+const PriceCalculated = ({calculation}) => {
 
     var contactLink = "http://localhost:3000/contact"
     var calculatorLink = "http://localhost:3000/pricing/calculator"
@@ -22,10 +22,10 @@ const PriceCalculated = (calculation) => {
                     </div>
                     <div className={styles.textContainer}>
                         <div className={styles.headerContainer}>
-                            <p>Here are is your estimated price.</p>
+                            <p>Here are is your estimated price:</p>
                         </div>
                         <div className={styles.priceContainer}>
-                            <p>Price: </p>
+                            <p>${calculation} </p>
                         </div>
                         <div className={styles.disclaimer}>
                             <p>*This prices are not guareeanted and is just an estimate.

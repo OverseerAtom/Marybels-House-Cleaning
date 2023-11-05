@@ -4,20 +4,21 @@ import axios from 'axios';
 import { Form, FormGroup, FormControl, Row, Col, Container } from "react-bootstrap";
 import { toast } from 'react-toastify';
 import design from '../css/button.module.css'
+import { PriceCalculated } from './finalPrice';
 
 const PriceCalculator = () => {
 
     const [messageSent, setMessageSent] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [touchedFields, setTouchedFields] = useState({});
+    const [estimatedPrice, setEstimatedPrice] = useState()
 
-    const [formData, setFormData] = useState({
+    const [formData, setformData] = useState({
         bedrooms: "",
         bathrooms: "",
         squareFeet: "",
         frequency: "",
         city: "",
-        estimatedPrice: "",
     });
 
     const [formErrors, setFormErrors] = useState ({
@@ -41,7 +42,7 @@ const PriceCalculator = () => {
             [name]: true,
         }));
     
-        setFormData({
+        setformData({
             ...formData,
             [name]: value,
         });
@@ -83,10 +84,12 @@ const PriceCalculator = () => {
             if (validateForm()) {
                 try {
                     console.log("Fetching Data...")
-                    const response = await axios.post("http://localhost:8080/api/price-calculator", formData);
+                    const response = await axios.post("http://127.0.0.1:8080/calculate", formData);
     
                     if(response.status === 200 || response.status === 201) {
                         console.log("Price Calculating")
+                        const estimatedPriceValue = response.data.estimatedPrice;
+                        setEstimatedPrice(estimatedPriceValue)
                         setMessageSent(true);
                         setFormSubmitted(true);
                         toast.success("Price is calculated")
@@ -105,6 +108,9 @@ const PriceCalculator = () => {
     return (
 
         <div className={styles.mainContainer} class="container-fluid px-5 py-2 mx-auto" style={{ maxWidth: '800px', margin: '40px 0px 40px 0px' }}>
+            {formSubmitted ? (
+                <PriceCalculated calculation={estimatedPrice}/>
+            ):(
             <Container>
                 <Form onSubmit={handleSubmit}>
                     <Row>
@@ -116,7 +122,7 @@ const PriceCalculator = () => {
                                 <FormControl
                                 as="select"
                                 name="bedrooms"
-                                value={FormData.bedrooms}
+                                value={formData.bedrooms}
                                 onChange={handleInputChange}
                                 placeholder='How many Bedrooms?'
                                 className={touchedFields.bedrooms ? (formErrors.bedrooms ? 'is-invalid' : 'is-valid') : ''}
@@ -137,7 +143,7 @@ const PriceCalculator = () => {
                                 <FormControl
                                 as="select"
                                 name="bathrooms"
-                                value={FormData.bathrooms}
+                                value={formData.bathrooms}
                                 onChange={handleInputChange}
                                 placeholder='How many bathrooms?'
                                 className={touchedFields.bathrooms ? (formErrors.bathrooms ? 'is-invalid' : 'is-valid') : ''}
@@ -148,7 +154,7 @@ const PriceCalculator = () => {
                                 <option value="2 bathrooms">2 bathrooms</option>
                                 <option value="3 bathrooms">3 bathrooms</option>
                                 <option value="4 bathrooms">4 bathrooms</option>
-                                <option value="5+ bathroom">5+ bathrooms</option>
+                                <option value="5+ bathrooms">5+ bathrooms</option>
                                 </FormControl>
                                 <div className={`${styles.textDangerLeft} text-danger`}>{formErrors.bathrooms}</div>
                             </FormGroup>
@@ -159,7 +165,7 @@ const PriceCalculator = () => {
                                 maxLength={5}
                                 type='text'
                                 name="squareFeet"
-                                value={FormData.squareFeet}
+                                value={formData.squareFeet}
                                 pattern='^[0-9]*$'
                                 onKeyDown={handleKeyPress}
                                 onChange={handleInputChange}
@@ -174,7 +180,7 @@ const PriceCalculator = () => {
                                 <FormControl
                                 as="select"
                                 name="frequency"
-                                value={FormData.frequency}
+                                value={formData.frequency}
                                 onChange={handleInputChange}
                                 placeholder="How frequent?"
                                 className={touchedFields.frequency ? (formErrors.frequency ? 'is-invalid' : 'is-valid') : ''}
@@ -195,8 +201,8 @@ const PriceCalculator = () => {
                             <FormGroup controlId='city' className={styles.inputBox}>
                                 <FormControl
                                 as="select"
-                                name="City"
-                                value={FormData.city}
+                                name="city"
+                                value={formData.city}
                                 onChange={handleInputChange}
                                 placeholder="City"
                                 className={touchedFields.city ? (formErrors.city ? 'is-invalid' : 'is-valid') : ''}
@@ -227,6 +233,7 @@ const PriceCalculator = () => {
                     </div>
                 </Form>
             </Container>
+            )};
         </div>
     )
 };
