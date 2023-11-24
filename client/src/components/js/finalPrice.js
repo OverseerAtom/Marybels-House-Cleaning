@@ -22,14 +22,14 @@ const PriceCalculated = ({calculation}) => {
                     </div>
                     <div className={styles.textContainer}>
                         <div className={styles.headerContainer}>
-                            <p>Here are is your estimated price:</p>
+                            <p>Here is your estimated price:</p>
                         </div>
                         <div className={styles.priceContainer}>
                             <p>${calculation} </p>
                         </div>
                         <div className={styles.disclaimer}>
-                            <p>*This prices are not guareeanted and is just an estimate.
-                                Prices can be more or less than what is shown.
+                            <p>*These prices are not guaranteed, and they are just an estimate.
+                                Prices can be more or less than what is shown.*
                             </p>
                         </div>
                     </div>

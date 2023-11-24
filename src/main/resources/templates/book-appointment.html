@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Cleaning Service Appointment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    body img {
+        width: 30%;
+    }
+    @media screen and (max-width: 700px) {
+        body img {
+            width: 70%;
+        }
+    }
+    @media screen and (max-width: 980px) {
+        body img {
+            width: 40%;
+        }
+    }
+    .container {
+      margin: 20px auto;
+      padding: 20px;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .header {
+      text-align: center;
+      background-color: #f9f9f9;
+      color: white;
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+    }
+    .content {
+      margin: 20px;
+    }
+    .footer {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      border-radius: 0 0 5px 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="content">
+    <p>Hello,</p>
+    <p>A customer wants to book an appointment! </p>
+    <p><strong>First Name:</strong> {{ firstName }}</p>
+    <p><strong>Last Name:</strong> {{ lastName }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Phone Number:</strong> {{phoneNumber}}</p>
+    <p><strong>Bedrooms:</strong> {{ bedrooms }}</p>
+    <p><strong>Bathrooms:</strong> {{ bathrooms }}</p>
+    <p><strong>Square Feet:</strong> {{ squareFeet }}</p>
+    <p><strong>Frequency:</strong> {{ frequency }}</p>
+    <p><strong>Address:</strong> {{streetAddress}} {{streetAddress2}} {{city}}, {{state}} {{zipCode}}</p>
+
+    <h4>Best Time and Date:</h4>
+    <p>{{date}} at {{time}}</p>
+  </div>
+  <div class="footer">
+    <h2>This message is automated</h2>
+  </div>
+</div>
+</body>
+</html>

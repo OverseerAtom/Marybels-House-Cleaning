@@ -19,9 +19,6 @@ const BookForm = () => {
     const [messageSent, setMessageSent] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [touchedFields, setTouchedFields] = useState({});
-
-    const [dateSelected, setDateSelected] = useState(null);
-    const [timeSelected, setTimeSelected] = useState(null);
     const [formData, setFormData] = useState ({
 
         firstName: "",
@@ -37,6 +34,8 @@ const BookForm = () => {
         city: "",
         state: "",
         zipCode: "",
+        time: "",
+        date: ""
     });
 
     const [formErrors, setFormErrors] = useState ({
@@ -54,6 +53,8 @@ const BookForm = () => {
         city: "",
         state: "",
         zipCode: "",
+        time: "",
+        date: ""
     });
 
     const camelCaseToNormalCase = (camelCaseString) => {
@@ -105,7 +106,7 @@ const BookForm = () => {
     setFormErrors(errors);
 };
 
-    // Moved validateEmail function outside to avoid re-declaration
+
     function validateEmail(email) {
         var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         return re.test(String(email).toLowerCase());
@@ -149,7 +150,7 @@ const BookForm = () => {
         if (validateForm()) {
             try {
                 console.log("Fetching Data...")
-                const response = await axios.post("http://localhost:8080/api/quote", formData);
+                const response = await axios.post("http://localhost:8080/api/book-appointment", formData);
 
                 if(response.status === 200 || response.status === 201) {
                     console.log("MessageSent")
@@ -331,19 +332,26 @@ const BookForm = () => {
                                 <Col xs={12} md={6}>
                                     <div className={styles.dateSelector}>
                                         <DatePicker
-                                         value={dateSelected} 
-                                         onChange={setDateSelected}
-                                         referenceDate={dayjs('2022-04-17T15:30')}
+                                        disablePast
+                                        label="Pick a day for the service"
+                                         value={formData.date} 
+                                         onChange={(newDate) => {
+                                            const formattedDate = dayjs(newDate).format('MM-DD-YYYY');
+                                            setFormData({ ...formData, date: formattedDate });
+                                        }}
+
                                          />
                                     </div>
                                     <div className={styles.dateSelector}>
                                         <TimePicker
-                                         value={timeSelected} 
-                                         onChange={setTimeSelected}
-                                         referenceDate={dayjs('2022-04-17T15:30')}
+                                         value={formData.time} 
+                                         onChange={(newTime) => {
+                                            const formattedTime = dayjs(newTime).format('h:mm A');
+                                            setFormData({ ...formData, time: formattedTime });
+                                        }}
+
                                          />
                                     </div>
-
                                 </Col>
                                 <div className={styles.subHeader}>
                                     <h3>Address:</h3>
