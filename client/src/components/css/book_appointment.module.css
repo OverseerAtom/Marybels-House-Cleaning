@@ -65,12 +65,9 @@ textarea:focus::placeholder {
 .googleCalendar{
     padding: 30px;
 }
-.dateSelector{
-    display: flex;
-    text-align: left;
-    flex-direction: row;
-}
-.timeSelector{
+.dateSelector {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }

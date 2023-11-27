@@ -53,8 +53,6 @@ const BookForm = () => {
         city: "",
         state: "",
         zipCode: "",
-        time: "",
-        date: ""
     });
 
     const camelCaseToNormalCase = (camelCaseString) => {
@@ -339,16 +337,18 @@ const BookForm = () => {
                                             const formattedDate = dayjs(newDate).format('MM-DD-YYYY');
                                             setFormData({ ...formData, date: formattedDate });
                                         }}
-
+                                        slotProps={{ textField: { fullWidth: true } }}
                                          />
                                     </div>
                                     <div className={styles.dateSelector}>
                                         <TimePicker
+                                        label="Best time for service"
                                          value={formData.time} 
                                          onChange={(newTime) => {
                                             const formattedTime = dayjs(newTime).format('h:mm A');
                                             setFormData({ ...formData, time: formattedTime });
                                         }}
+                                        slotProps={{ textField: { fullWidth: true } }}
 
                                          />
                                     </div>
