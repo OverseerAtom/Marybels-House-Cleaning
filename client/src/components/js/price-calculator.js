@@ -233,7 +233,7 @@ const PriceCalculator = () => {
                     </div>
                 </Form>
             </Container>
-            )};
+            )}
         </div>
     )
 };

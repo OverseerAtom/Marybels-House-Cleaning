@@ -337,7 +337,12 @@ const BookForm = () => {
                                             const formattedDate = dayjs(newDate).format('MM-DD-YYYY');
                                             setFormData({ ...formData, date: formattedDate });
                                         }}
-                                        slotProps={{ textField: { fullWidth: true } }}
+                                        slotProps={{ 
+                                            textField: { 
+                                                fullWidth: true,
+                                                error: false
+                                            } 
+                                    }}
                                          />
                                     </div>
                                     <div className={styles.dateSelector}>
@@ -348,7 +353,13 @@ const BookForm = () => {
                                             const formattedTime = dayjs(newTime).format('h:mm A');
                                             setFormData({ ...formData, time: formattedTime });
                                         }}
-                                        slotProps={{ textField: { fullWidth: true } }}
+                                        slotProps={{ 
+                                            textField: { 
+                                                fullWidth: true,
+                                                error: false
+                                            } 
+                                        
+                                        }}
 
                                          />
                                     </div>

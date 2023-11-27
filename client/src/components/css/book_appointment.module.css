@@ -70,4 +70,6 @@ textarea:focus::placeholder {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
