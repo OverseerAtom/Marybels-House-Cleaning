@@ -5,6 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouseChimney, faToilet, faBuilding, faTruckMoving,faBed,faSoap} from '@fortawesome/free-solid-svg-icons';
 
 const ServiceList = () => {
+
+    const homeURL = "http://localhost:3000/"
+    const serviceURL = "http://localhost:3000/services"
+
     return (
         <div className={styles.mainContainer}>
             <div className={styles.titleContainer}>
@@ -14,10 +18,12 @@ const ServiceList = () => {
                 <div className={styles.directory}>
                     <ul>
                         <li>
-                            <a title='Home'> Home </a>
+                        <a title='Home' href={homeURL}> Home </a>
                         </li>
                         <li> / </li>
-                        <li> Services </li>
+                        <li>
+                        <a title='Home' href={serviceURL}>Services</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -25,6 +31,7 @@ const ServiceList = () => {
                 <Col md={12}>
                     <Row>
                     <Col sm={12} md={6} lg={4}>
+                        <a href={}>
                             <div className={styles.serviceContainer}>
                                 <div className={styles.squareContainer}>
                                     <div className={styles.square}>
@@ -35,6 +42,7 @@ const ServiceList = () => {
                                     </div>
                                 </div>
                             </div>
+                        </a>
                         </Col>
                         <Col sm={12} md={6} lg={4}>
                             <div className={styles.serviceContainer}>
