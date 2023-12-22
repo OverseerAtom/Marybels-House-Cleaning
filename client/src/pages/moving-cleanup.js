@@ -2,7 +2,7 @@ import React from 'react';
 import { Header } from '../components/js/header';
 import {Footer} from '../components/js/footer'
 
-const DeepCleaning = () => {
+const MovingCleanup = () => {
     return(
         <React.Fragment>
             <Header/>
@@ -12,4 +12,4 @@ const DeepCleaning = () => {
     )
 }
 
-export {DeepCleaning}
+export {MovingCleanup}

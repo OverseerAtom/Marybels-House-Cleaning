@@ -14,27 +14,34 @@ import { CalendarTest } from './pages/calendar-test';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
+import { RegularService } from './pages/regular-service';
+import { DeepCleaning } from './pages/deep-cleaning';
+import { OfficeCleaning } from './pages/office-cleaning';
+import { DetailedCleaning } from './pages/detailed-cleaning';
+import { AirbnbCleaning } from './pages/airbnb-cleaning';
+import { MovingCleanup } from './pages/moving-cleanup';
 function App() {
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <div className='App'>
-        <Router>
-          <Routes>
-            <Route path='/' element={<Homepage />} />
-            <Route path='/contact' element={<ContactPage />} />
-            <Route path='/pricing' element={<PricePage />} />
-            <Route path='/services' element={<Services />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/book-now' element={<BookNow />} />
-            <Route path='/pricing/quote' element={<PricingQuote />} />
-            <Route path='/pricing/calculator' element={<PricingCalculator />} />
-            <Route path='/pricing/final-price' element={<FinalPrice />} />
-            <Route path='/calendar-test' element={<CalendarTest />} />
-          </Routes>
-        </Router>
-      </div>
-    </LocalizationProvider>
-  );
+  <div className='App'>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Homepage />}/>
+        <Route path='/contact' element={<ContactPage />}/>
+        <Route path='/price' element={<PricePage />}/>
+        <Route path='/services' element={<Services />}/>
+        <Route path='/about' element={<About />}/>
+        <Route path='/book-now' element={<BookNow />}/>
+        <Route path='/services/regular-cleaning' element={<RegularService />}/>
+        <Route path='/services/deep-cleaning' element={<DeepCleaning />}/>
+        <Route path='/services/office-cleaning' element={<OfficeCleaning />}/>
+        <Route path='/services/detailed-cleaning' element={<DetailedCleaning />}/>
+        <Route path='/services/airbnb-cleaning' element={<AirbnbCleaning />}/>
+        <Route path='/services/moving-cleanup' element={<MovingCleanup />}/>
+      </Routes>
+    </Router>
+  </div>
+
+  )
 }
 
 export default App;

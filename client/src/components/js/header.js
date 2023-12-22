@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import styles from '../css/header.module.css';
 import logo from "../../media/Marybel's House Cleaning One Line.png"
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -33,9 +34,9 @@ const Header = () => {
                             <a href={price_url}>
                                 <li>Pricing</li>
                             </a>
-                            <a href={services_url}>
+                            <Link to='services'>
                                 <li>Services</li>
-                            </a>
+                            </Link>
                             <a href={about_url}>
                                 <li>About</li>
                             </a>
