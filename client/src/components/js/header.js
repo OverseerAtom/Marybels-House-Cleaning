@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import styles from '../css/header.module.css';
 import logo from "../../media/Marybel's House Cleaning One Line.png"
-import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -31,10 +30,10 @@ const Header = () => {
                 <div className={styles.leftContentcontainer}>
                     <nav className={styles.leftContent}>
                         <ul>
-                            <a href={price_url}>
+                            <Link to='/price'>
                                 <li>Pricing</li>
-                            </a>
-                            <Link to='services'>
+                            </Link>
+                            <Link to='/services'>
                                 <li>Services</li>
                             </Link>
                             <a href={about_url}>
@@ -46,13 +45,13 @@ const Header = () => {
                 <div className={styles.mediumContentContainer}>
                     <nav className={styles.leftContent}>
                         <ul>
-                            <a href={price_url}>
+                            <Link to='/price'>
                                 <li>Pricing</li>
-                            </a>
+                            </Link>
                             <li>Services</li>
-                            <a href={about_url}>
+                            <Link to='/about'>
                                 <li>About</li>
-                            </a>
+                            </Link>
                             <a href={contact_url}>
                                 <li>Contact</li>
                             </a>
@@ -72,9 +71,9 @@ const Header = () => {
                 {isOpen && (
                     <div className={styles.overlay}>
                     <ul className={styles.menuList}>
-                        <a href={price_url}>
+                        <Link to='price'>
                             <li>Pricing</li>
-                        </a>
+                        </Link>
                         <li>Services</li>
                         <a href={about_url}>
                             <li>About</li>
