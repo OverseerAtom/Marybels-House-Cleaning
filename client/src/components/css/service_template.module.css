@@ -10,16 +10,14 @@
 .pageHeader{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     height: 150px;
     background-color: rgb(220, 220, 220);
 }
-.pageHeader h1{
-    margin-left: 188px;
-}
-.pageHeader p{
-    margin-right: 150px;
+
+.textContainer{
+    max-width: 1050px;
 }
 
 .contentContainer{

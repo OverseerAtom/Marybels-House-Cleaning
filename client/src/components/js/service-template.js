@@ -7,8 +7,10 @@ const ServiceTemplate = () => {
     return(
         <div className={styles.mainContainer}>
             <div className={`col text-center text-left ${styles.pageHeader}`}>
-                <h1>Regular Cleaning Service</h1>
-                <p>Home / Service / Regular Cleaning</p>
+                <div className={styles.textContainer}>
+                    <h1>Regular Cleaning Service</h1>
+                    <p>Home / Service / Regular Cleaning</p>
+                </div>
             </div>
             <div className={styles.contentContainer}>
                 <div className={styles.introContainer}>
