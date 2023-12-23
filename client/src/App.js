@@ -5,6 +5,7 @@ import { Homepage } from './pages/home';
 import { ContactPage } from './pages/contact';
 import { PricePage } from './pages/pricing';
 import { Services } from './pages/services';
+import { Services } from './pages/services';
 import { About } from './pages/about';
 import { BookNow } from './pages/book-now';
 import { PricingQuote } from './pages/pricing-quote-form';
@@ -19,6 +20,7 @@ import { OfficeCleaning } from './pages/office-cleaning';
 import { DetailedCleaning } from './pages/detailed-cleaning';
 import { AirbnbCleaning } from './pages/airbnb-cleaning';
 import { MovingCleanup } from './pages/moving-cleanup';
+import { ServiceRegular } from './pages/service-regular';
 function App() {
   return (
   <div className='App'>
