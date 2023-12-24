@@ -5,7 +5,6 @@ import { Homepage } from './pages/home';
 import { ContactPage } from './pages/contact';
 import { PricePage } from './pages/pricing';
 import { Services } from './pages/services';
-import { Services } from './pages/services';
 import { About } from './pages/about';
 import { BookNow } from './pages/book-now';
 import { PricingQuote } from './pages/pricing-quote-form';
@@ -35,7 +34,7 @@ function App() {
           <Route path='/book-now' element={<BookNow />}/>
           <Route path='/price/pricing-calculator' element={<PricingCalculator />}/>
           <Route path='/price/pricing-quote' element={<PricingQuote />}/>
-          <Route path='/services/regular-cleaning' element={<RegularService />}/>
+          <Route path='/services/regular-cleaning' element={<ServiceRegular />}/>
           <Route path='/services/deep-cleaning' element={<DeepCleaning />}/>
           <Route path='/services/office-cleaning' element={<OfficeCleaning />}/>
           <Route path='/services/detailed-cleaning' element={<DetailedCleaning />}/>
