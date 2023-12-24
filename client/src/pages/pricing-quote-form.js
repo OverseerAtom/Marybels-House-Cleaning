@@ -13,4 +13,4 @@ const PricingQuote = () => {
     )
 }
 
-export {PricingQuote}
+export default PricingQuote

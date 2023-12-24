@@ -12,4 +12,4 @@ const OfficeCleaning = () => {
     )
 }
 
-export {OfficeCleaning}
+export default OfficeCleaning

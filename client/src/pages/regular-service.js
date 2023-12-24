@@ -12,4 +12,4 @@ const RegularService = () => {
     )
 }
 
-export {RegularService}
+export default RegularService

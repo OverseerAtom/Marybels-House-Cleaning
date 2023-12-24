@@ -12,4 +12,4 @@ const BookNow = () => {
         </React.Fragment>
     )
 }
-export {BookNow}
+export default BookNow

@@ -12,4 +12,4 @@ const MovingCleanup = () => {
     )
 }
 
-export {MovingCleanup}
+export default MovingCleanup

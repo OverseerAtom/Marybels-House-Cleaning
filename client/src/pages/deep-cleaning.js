@@ -12,4 +12,4 @@ const DeepCleaning = () => {
     )
 }
 
-export {DeepCleaning}
+export default DeepCleaning

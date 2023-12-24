@@ -12,4 +12,4 @@ const PricingCalculator = () => {
         </React.Fragment>
     )
 }
-export {PricingCalculator}
+export default PriceCalculator

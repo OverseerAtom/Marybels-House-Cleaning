@@ -12,4 +12,4 @@ const AirbnbCleaning = () => {
     )
 }
 
-export {AirbnbCleaning}
+export default AirbnbCleaning

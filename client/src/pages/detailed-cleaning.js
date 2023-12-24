@@ -12,4 +12,4 @@ const DetailedCleaning = () => {
     )
 }
 
-export {DetailedCleaning}
+export default DetailedCleaning

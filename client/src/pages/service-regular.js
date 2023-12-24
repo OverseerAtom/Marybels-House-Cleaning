@@ -12,4 +12,4 @@ const ServiceRegular = () => {
         </React.Fragment>
     )
 }
-export {ServiceRegular}
+export default ServiceRegular

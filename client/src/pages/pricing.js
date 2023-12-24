@@ -15,4 +15,4 @@ const PricePage = () => {
     )
 }
 
-export {PricePage}
+export default PricePage

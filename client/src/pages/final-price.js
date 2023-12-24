@@ -13,4 +13,4 @@ const FinalPrice = () => {
     )
 }
 
-export {FinalPrice}
+export default FinalPrice

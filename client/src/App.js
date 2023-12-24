@@ -1,19 +1,24 @@
-import React from 'react';
+import {React, lazy} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { MovingCleanup } from './pages/moving-cleanup';
-import { ServiceRegular } from './pages/service-regular';
-const Homepage = lazy(() => import('./pages/book-now'))
-const ContactPage = lazy(() => import('./pages/contact'))
+
+const Homepage = lazy(() => import('./pages/home'))
+// const ContactPage = lazy(() => import('./pages/contact'))
 const PricePage = lazy(() => import('./pages/pricing'));
 const Services = lazy(() => import('./pages/services'));
 const About = lazy(() => import('./pages/about'));
 const PricingQuote = lazy(() => import('./pages/pricing-quote-form'));
+const ServiceRegular = lazy(() => import('./pages/regular-service'));
 const DeepCleaning = lazy(() => import('./pages/deep-cleaning'));
+const MovingCleanup = lazy(() => import('./pages/moving-cleanup'));
 const AirbnbCleaning = lazy(() => import('./pages/airbnb-cleaning'));
 const PricingCalculator = lazy(() => import('./pages/pricing-calculator'));
+const BookNow = lazy(() => import('./pages/book-now'));
+const DetailedCleaning = lazy(() => import('./pages/detailed-cleaning'));
+const OfficeCleaning = lazy(() => import('./pages/office-cleaning'));
+
 
 function App() {
   return (
@@ -22,7 +27,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Homepage />}/>
-          <Route path='/contact' element={<ContactPage />}/>
+          {/* <Route path='/contact' element={<ContactPage />}/> */}
           <Route path='/price' element={<PricePage />}/>
           <Route path='/services' element={<Services />}/>
           <Route path='/about' element={<About />}/>

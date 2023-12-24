@@ -2,7 +2,7 @@ import React from 'react';
 import { Header } from '../components/js/header';
 import {Footer} from '../components/js/footer';
 import { FAQ } from '../components/js/faq';
-import {ContactForm} from '../components/js/contact-components/contact-form';
+import ContactForm from '../components/js/contact-components/contact-form';
 
 const ContactPage = () =>{
     return(
@@ -15,4 +15,4 @@ const ContactPage = () =>{
     )
 }
 
-export {ContactPage}
+export default ContactPage

@@ -13,4 +13,4 @@ const CalendarTest = () => {
     )
 }
 
-export {CalendarTest}
+export default CalendarTest
