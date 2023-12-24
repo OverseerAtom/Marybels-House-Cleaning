@@ -1,25 +1,20 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Homepage } from './pages/home';
-import { ContactPage } from './pages/contact';
-import { PricePage } from './pages/pricing';
-import { Services } from './pages/services';
-import { About } from './pages/about';
-import { BookNow } from './pages/book-now';
-import { PricingQuote } from './pages/pricing-quote-form';
-import { PricingCalculator } from './pages/pricing-calculator';
-import { FinalPrice } from './pages/final-price';
-import { CalendarTest } from './pages/calendar-test';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { RegularService } from './pages/regular-service';
-import { DeepCleaning } from './pages/deep-cleaning';
-import { OfficeCleaning } from './pages/office-cleaning';
-import { DetailedCleaning } from './pages/detailed-cleaning';
-import { AirbnbCleaning } from './pages/airbnb-cleaning';
 import { MovingCleanup } from './pages/moving-cleanup';
 import { ServiceRegular } from './pages/service-regular';
+const Homepage = lazy(() => import('./pages/book-now'))
+const ContactPage = lazy(() => import('./pages/contact'))
+const PricePage = lazy(() => import('./pages/pricing'));
+const Services = lazy(() => import('./pages/services'));
+const About = lazy(() => import('./pages/about'));
+const PricingQuote = lazy(() => import('./pages/pricing-quote-form'));
+const DeepCleaning = lazy(() => import('./pages/deep-cleaning'));
+const AirbnbCleaning = lazy(() => import('./pages/airbnb-cleaning'));
+const PricingCalculator = lazy(() => import('./pages/pricing-calculator'));
+
 function App() {
   return (
   <div className='App'>
