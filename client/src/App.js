@@ -5,7 +5,6 @@ import { Homepage } from './pages/home';
 import { ContactPage } from './pages/contact';
 import { PricePage } from './pages/pricing';
 import { Services } from './pages/services';
-import { Services } from './pages/services';
 import { About } from './pages/about';
 import { BookNow } from './pages/book-now';
 import { PricingQuote } from './pages/pricing-quote-form';
