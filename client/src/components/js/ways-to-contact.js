@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../css/ways_to_contact.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import design from '../css/button.module.css';
 import {ContactPage} from '../../pages/contact';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const ContactUs = () => {
 

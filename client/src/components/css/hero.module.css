@@ -1,0 +1,44 @@
+.placeholder {
+    min-height: 90vh;
+}
+
+.dataEnter {
+    opacity: 0;
+}
+  
+.dataEnterActive {
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+
+.dataExit {
+    opacity: 1; 
+}
+
+.dataExitActive {
+    opacity: 0;
+    transition: opacity 1.5s;
+}  
+
+.placeholder {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-transition-enter {
+    opacity: 0;
+  }
+  .my-transition-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+  }
+  .my-transition-exit {
+    opacity: 1;
+  }
+  .my-transition-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+  
