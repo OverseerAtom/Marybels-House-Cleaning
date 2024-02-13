@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import styles from '../css/service-list.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouseChimney, faToilet, faBuilding, faTruckMoving,faBed,faSoap} from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import Aos from 'aos';
 
 const ServiceList = () => {
 
     const homeURL = "http://localhost:3000/"
     const serviceURL = "http://localhost:3000/services"
 
+    useEffect(() => {
+        Aos.init ({
+            duration: 1000,
+            once: true,
+        });
+        console.log('Transition activated')
+      }, []);
+      
     return (
         <div className={styles.mainContainer}>
-            <div className={styles.titleContainer}>
+            <div className={styles.titleContainer} data-Aos='fade-top'>
                 <div className={styles.header}>
                     <h1>Services</h1>
                 </div>
@@ -30,7 +39,8 @@ const ServiceList = () => {
             </div>
             <Row>
                 <Col md={12}>
-                    <Row>
+                    
+                    <Row data-Aos='fade-up'>
                     <Col sm={12} md={6} lg={4}>
                         <Link to="/services/regular-cleaning" style={{ textDecoration: 'none' }}>
                             <div className={styles.serviceContainer}>

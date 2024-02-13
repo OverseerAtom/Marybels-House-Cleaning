@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; // Import useEffect
+import React, { useEffect } from 'react';
 import { Header } from '../components/js/header';
 import { Footer } from '../components/js/footer';
 import { Reasons } from '../components/js/reasons';
@@ -22,21 +22,14 @@ const Homepage = () => {
     <React.Fragment>
         <Header />
         <div data-Aos='fade-top'>
-                <IntroText data-Aos="fade-up"/>
+              <IntroText/>
+              <Reasons/>
         </div>
-        <div data-Aos='fade-top'>
-                <Reasons data-Aos="fade-up" data-aos-delay="100"/>
-        </div>
-        <div data-Aos='fade-top'>
-                <AboutOurCompany data-Aos="fade-up" data-aos-delay="200"/>
-        </div>
-        <div data-Aos='fade-top'>
-                <ContactUs data-Aos="fade-up" data-aos-delay="300"/>
-        </div>
-        <div data-Aos='fade-top'>
+        <div data-Aos='fade-up'>
+              <AboutOurCompany/>
+              <ContactUs/>
         <Footer />
         </div>
-      
     </React.Fragment>
   );
 };
