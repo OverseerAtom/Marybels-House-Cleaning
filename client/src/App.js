@@ -13,7 +13,7 @@ import { FinalPrice } from './pages/final-price';
 import { CalendarTest } from './pages/calendar-test';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { RegularService } from './pages/regular-service';
+import { RegularService } from './pages/regular-cleaning-service';
 import { DeepCleaning } from './pages/deep-cleaning';
 import { OfficeCleaning } from './pages/office-cleaning';
 import { DetailedCleaning } from './pages/detailed-cleaning';

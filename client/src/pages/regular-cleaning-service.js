@@ -15,7 +15,9 @@ const RegularService = () => {
     return(
         <React.Fragment>
             <Header/>
+            <div data-Aos='fade-top'>
             <ServiceTemplate/>
+            </div>
             <div  data-Aos='fade-top'>
             <Footer/>
             </div>
