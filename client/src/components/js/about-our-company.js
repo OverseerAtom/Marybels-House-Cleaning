@@ -5,6 +5,7 @@ import SkeletonPlaceholder from './loading-placeholder';
 import EmployeeImage from '../../media/Intro-photos.jpg'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import AboutImage from '../../media/Intro-photos.jpg'
 
 const AboutOurCompany = () => {
     const [loading, setLoading] = useState(true);
@@ -32,20 +33,22 @@ const AboutOurCompany = () => {
     }
 
     return (
-        <div className={styles.mainContainer}>
-            <div className="row">
-                <div className={`col-lg-6 col-md-12 col-sm-12 ${styles.box}`}>
-                    <h3>About Our Company</h3>
-                    <p>Welcome to our Bay Area house cleaning service, a local and 
-                       woman-owned business serving the community since 2006...
-                    </p>
-                </div>
-                <div className={`col-lg-6 col-md-12 col-sm-12 ${styles.imageContainer}`}>
-                    <div className={styles.image} style={{ backgroundImage: `url(${EmployeeImage})` }}>
-                    </div>
-                </div>
-            </div>
+        <div className={`${styles.mainContainer} container-fluid p-0`}>
+        <div className="row no-gutters justify-content-center align-items-center p-0">
+          <div className={`${styles.imageContainer} col-sm-12 col-md-6 order-sm-2 mb-3 mb-md-0 p-0`}>
+            <img src={AboutImage} alt="About Me" className="img-fluid rounded"/>
+          </div>
+          <div className="col-sm-12 col-md-6 text-center">
+            <h2>About Our Company</h2>
+            <p>
+
+            Established in 2009 by a Bay Area native, our house cleaning service is rooted in the local community, 
+            offering meticulous and reliable cleaning solutions to homes throughout the Bay Area.
+             With years of experience, we pride ourselves on our attention to detail and commitment to customer satisfaction.
+            </p>
+          </div>
         </div>
+      </div>
     );
 };
 
