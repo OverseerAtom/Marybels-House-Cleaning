@@ -55,7 +55,9 @@ const Header = () => {
                             <a href={contact_url}>
                                 <li>Contact</li>
                             </a>
-                            <li>Email</li>
+                            <a href="mailto:cortesemail5123@yahoo.com?subject=House Cleaning Information&body=Hello, I'm interested in more information about your house cleaning services.">
+                                <li>Email</li>
+                            </a>
                             <a href={book_now_url}>
                                 <li>Book Now</li>
                             </a>
@@ -81,7 +83,9 @@ const Header = () => {
                         <a href={contact_url}>
                             <li>Contact</li>
                         </a>
-                        <li>Email</li>
+                        <a href="mailto:cortesemail5123@yahoo.com?subject=House Cleaning Information&body=Hello, I'm interested in more information about your house cleaning services.">
+                            <li>Email</li>
+                        </a>
                         <a href={book_now_url}>
                             <li>Book Now</li>
                         </a>
@@ -91,7 +95,9 @@ const Header = () => {
                 <div className={styles.rightContentcontainer}>
                     <nav className={styles.rightContent}>
                         <ul>
+                        <a href="mailto:cortesemail5123@yahoo.com?subject=House Cleaning Information&body=Hello, I'm interested in more information about your house cleaning services.">
                             <li>Email</li>
+                        </a>
                             <a href={book_now_url}>
                                 <li>Book Now</li>
                             </a>
