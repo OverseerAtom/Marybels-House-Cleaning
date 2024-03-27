@@ -30,27 +30,25 @@ const OfficeCleaningComponent = () => {
                 <div className={styles.introContainer}>
                     <h3>Description</h3>
 
-                    <p> Our Premier Deep Cleaning Service includes a thorough 
-                        cleaning of your home's essential appliances. We meticulously 
-                        clean your fridge and oven, both inside and out. Our team removes all items, scrubs
-                         every nook and cranny, and eliminates stubborn stains and odors, restoring these appliances to their 
-                         pristine condition. Trust us to bring a deep clean that rejuvenates your space and enhances your 
-                         kitchen's functionality and hygiene.
+                    <p> 
+                    Office cleaning services ensure a clean, healthy, and organized workspace through tasks like dusting, 
+                    vacuuming, and sanitizing common areas and workstations. Performed regularly or during off-hours to avoid 
+                    disruption, these services contribute to a productive and visually appealing environment.
                     </p>
                 </div>
                 <div className={`row ${styles.includeContainer}`}>
                     <h3>What include with the service?</h3>
                     <div className={`col-md-6 ${styles.list1}`}>
                         <ul>
-                            <li>Kitchen Cleaning</li>
-                            <li>Bathroom Cleaning</li>
-                            <li>Living Room Cleaning</li>
-                            <li>Dinning Room Cleaning</li>
-                            <li>Vacuuming</li>
-                            <li>Dusting</li>
-                            <li>Outside Stove Cleaning</li>
-                            <li>Inside and Out Oven Cleaning</li>
-                            <li>Inside and Out Fridge Cleaning</li>
+                            <li>Break Room Cleaning</li>
+                            <li>Workstation Cleaning</li>
+                            <li>Reception Area Cleaning</li>
+                            <li>Conference Room Cleaning</li>
+                            <li>Carpet Vacuuming</li>
+                            <li>Office Equipment Dusting</li>
+                            <li>Exterior Microwave Cleaning</li>
+                            <li>Interior and Exterior Oven Cleaning</li>
+                            <li>Interior and Exterior Refrigerator Cleaning</li>
                         </ul>
                     </div>
                     <div className={`col-md-6 ${styles.list2}`}>

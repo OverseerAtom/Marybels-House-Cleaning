@@ -30,54 +30,51 @@ const DetailedCleaningComponent = () => {
                 <div className={styles.introContainer}>
                     <h3>Description</h3>
 
-                    <p> Our Premier Deep Cleaning Service includes a thorough 
-                        cleaning of your home's essential appliances. We meticulously 
-                        clean your fridge and oven, both inside and out. Our team removes all items, scrubs
-                         every nook and cranny, and eliminates stubborn stains and odors, restoring these appliances to their 
-                         pristine condition. Trust us to bring a deep clean that rejuvenates your space and enhances your 
-                         kitchen's functionality and hygiene.
+                    <p> 
+                        A detailed cleaning covers every inch for a spotless environment. 
+                        Dust all surfaces, vacuum carpets, and mop floors with special attention 
+                        to corners and under furniture. Deep clean kitchens and bathrooms, 
+                        including appliances, countertops, and fixtures. Don't forget to 
+                        clean windows, blinds, and curtains. This thorough approach leaves 
+                        your space pristine and inviting.
                     </p>
                 </div>
                 <div className={`row ${styles.includeContainer}`}>
                     <h3>What include with the service?</h3>
                     <div className={`col-md-6 ${styles.list1}`}>
                         <ul>
-                            <li>Kitchen Cleaning</li>
-                            <li>Bathroom Cleaning</li>
-                            <li>Living Room Cleaning</li>
-                            <li>Dinning Room Cleaning</li>
-                            <li>Vacuuming</li>
-                            <li>Dusting</li>
-                            <li>Outside Stove Cleaning</li>
-                            <li>Inside and Out Oven Cleaning</li>
-                            <li>Inside and Out Fridge Cleaning</li>
+                            <li>Deep Kitchen Clean-Up</li>
+                            <li>Comprehensive Bathroom Sanitization</li>
+                            <li>Thorough Living Room Refresh</li>
+                            <li>Detailed Dining Room Makeover</li>
+                            <li>Whole-House Vacuuming</li>
                         </ul>
                     </div>
                     <div className={`col-md-6 ${styles.list2}`}>
                         <ul>
-                            <li>Kitchen Cleaning</li>
-                            <li>Bathroom Cleaning</li>
-                            <li>Living Room Cleaning</li>
-                            <li>Dinning Room Cleaning</li>
-                            <li>Vacuuming</li>
-                            <li>Dusting</li>
-                            <li>Outside Stove Cleaning</li>
+                            <li>Extensive Dusting Throughout</li>
+                            <li>Exterior Stove Surface Degreasing</li>
+                            <li>Full Oven Cleanse (Inside and Out)</li>
+                            <li>Complete Fridge Overhaul (Inside and Out)</li>
                         </ul>
                     </div>
                     <div className={`row ${styles.includeContainer}`}>
                     <h3>Add-ons</h3>
                     <div className={`col-md-6 ${styles.list1}`}>
                         <ul>
-                            <li>Window Cleaning</li>
-                            <li>Inside Fridge Cleaning</li>
-                            <li>Party Clean Up</li>
+                        <li>Window Washing and Treatment</li>
+                        <li>Eco-Friendly Deep Carpet Cleaning</li>
+                        <li>High-Touch Surface Disinfection</li>
+                        <li>Custom Closet Organization and Decluttering</li>
+                        <li>Luxury Bed Linen Service</li>
                         </ul>
                     </div>
                     <div className={`col-md-6 ${styles.list2}`}>
                         <ul>
-                            <li>Inside Oven Cleaning</li>
-                            <li>Detailed Vacuuming</li>
-                            <li>Pet Stain Cleaning</li>
+                            <li>Pet Area Sanitization and Odor Removal</li>
+                            <li>Grout and Tile Deep Cleaning</li>
+                            <li>Garage Sweep and Organization</li>
+                            <li>Outdoor Living Space Tidy-Up</li>
                         </ul>
                     </div>
                 </div>
