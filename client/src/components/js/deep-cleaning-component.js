@@ -3,14 +3,14 @@ import styles from "../css/service_template.module.css"
 import { Link } from 'react-router-dom'
 import { URLs } from '../config/urls'
 
-const ServiceTemplate = () => {
+const DeepCleaningComponent = () => {
 
 
     return(
         <div className={styles.mainContainer}>
             <div className={`col text-center text-left ${styles.pageHeader}`}>
             <div className={styles.directory}>
-                <h1>Regular Cleaning</h1>
+                <h1>Deep Cleaning</h1>
                     <ul>
                         <li>
                         <Link to={URLs.home} title="Home">Home</Link>
@@ -21,7 +21,7 @@ const ServiceTemplate = () => {
                         </li>
                         <li>/</li>
                         <li>
-                        <Link to={URLs.regularCleaning} title="Regular">Regular Cleaning</Link>
+                        <Link to={URLs.deepCleaning} title="Deep Cleaning">Deep Cleaning</Link>
                         </li>
                     </ul>
                 </div>
@@ -30,15 +30,13 @@ const ServiceTemplate = () => {
                 <div className={styles.introContainer}>
                     <h3>Description</h3>
 
-                    <p> This service involves the consistent practice 
-                    of tidying and sanitizing living or working spaces 
-                    to maintain a clean and organized environment. This 
-                    routine activity includes tasks such as dusting, vacuuming, 
-                    wiping surfaces, and mopping floors to eliminate dirt, dust, 
-                    and germs. By performing regular cleaning, you can enhance 
-                    the aesthetic appeal of your space, promote better hygiene, 
-                    and contribute to a healthier and more comfortable living or 
-                    working environment.</p>
+                    <p> Our Premier Deep Cleaning Service includes a thorough 
+                        cleaning of your home's essential appliances. We meticulously 
+                        clean your fridge and oven, both inside and out. Our team removes all items, scrubs
+                         every nook and cranny, and eliminates stubborn stains and odors, restoring these appliances to their 
+                         pristine condition. Trust us to bring a deep clean that rejuvenates your space and enhances your 
+                         kitchen's functionality and hygiene.
+                    </p>
                 </div>
                 <div className={`row ${styles.includeContainer}`}>
                     <h3>What include with the service?</h3>
@@ -51,6 +49,8 @@ const ServiceTemplate = () => {
                             <li>Vacuuming</li>
                             <li>Dusting</li>
                             <li>Outside Stove Cleaning</li>
+                            <li>Inside and Out Oven Cleaning</li>
+                            <li>Inside and Out Fridge Cleaning</li>
                         </ul>
                     </div>
                     <div className={`col-md-6 ${styles.list2}`}>
@@ -87,4 +87,4 @@ const ServiceTemplate = () => {
     )
 }
 
-export {ServiceTemplate}
+export {DeepCleaningComponent}
