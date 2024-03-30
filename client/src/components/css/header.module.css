@@ -155,7 +155,6 @@
     z-index: 9999;
   }
   .sandwich:hover{
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: .4s;
   }
 
@@ -166,7 +165,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7); 
+  background-color: white; 
   z-index: 9998;
   display: flex;
   flex-direction: column;
@@ -182,7 +181,7 @@
 }
 
 .menuList li {
-  color: white;
+  color: #333333;
   font-size: 2em;
   margin: 1em;
   cursor: pointer;

@@ -1,0 +1,36 @@
+.hamburger {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 2.5em; /* Adjusted for better control */
+  width: 2.5em; /* Keep this proportional to height */
+  position: relative; /* Added for positioning spans */
+}
+
+.hamburger span {
+  display: block;
+  height: 1px; /* Makes the lines thicker */
+  width: 100%; /* Ensures lines stretch to the button's width */
+  background-color: #000; /* Makes lines black, adjust as needed */
+  border-radius: 4px; /* Optional: Adds rounded corners to lines */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Ensures smooth transitions */
+}
+
+/* Middle bar disappears */
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+/* Top bar transforms into top of 'X' */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(13px) rotate(45deg);
+}
+
+/* Bottom bar transforms into bottom of 'X' */
+.hamburger.active span:nth-child(3) {
+  transform: translateY(0px) rotate(-45deg);
+}

@@ -1,9 +1,8 @@
 import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
 import styles from '../css/header.module.css';
 import logo from "../../media/Marybel's House Cleaning One Line.png"
+import HamburgerIcon from './hamburgerIcon';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -46,11 +45,17 @@ const Header = () => {
                     <nav className={styles.leftContent}>
                         <ul>
                             <Link to='/price'>
-                                <li>Pricing</li>
+                                <a href={price_url}>
+                                    <li>Pricing</li>
+                                </a>
                             </Link>
-                            <li>Services</li>
+                            <a href={services_url}>
+                                <li>Services</li>
+                            </a>
                             <Link to='/about'>
-                                <li>About</li>
+                                <a href={about_url}>
+                                    <li>About</li>
+                                </a>
                             </Link>
                             <a href={contact_url}>
                                 <li>Contact</li>
@@ -68,15 +73,17 @@ const Header = () => {
                     <img src={logo} alt="logo" onClick={() => switchPage(homepage_url)}></img>
                 </div>
                 <div className={styles.sandwich} onClick={toggleMenu}>
-                    <FontAwesomeIcon icon={faBars} size="lg" />
+                    <HamburgerIcon/>
                 </div>
                 {isOpen && (
                     <div className={styles.overlay}>
                     <ul className={styles.menuList}>
-                        <Link to='price'>
+                        <a href={services_url}>
                             <li>Pricing</li>
-                        </Link>
-                        <li>Services</li>
+                        </a>
+                        <a href={services_url}>
+                            <li>Services</li>
+                        </a>
                         <a href={about_url}>
                             <li>About</li>
                         </a>
