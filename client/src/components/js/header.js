@@ -78,7 +78,7 @@ const Header = () => {
                 {isOpen && (
                     <div className={styles.overlay}>
                     <ul className={styles.menuList}>
-                        <a href={services_url}>
+                        <a href={price_url}>
                             <li>Pricing</li>
                         </a>
                         <a href={services_url}>
