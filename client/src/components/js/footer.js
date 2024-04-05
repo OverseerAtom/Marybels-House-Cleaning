@@ -1,6 +1,8 @@
-import { React, useState } from 'react';
+import { React, useState} from 'react';
 import styles from "../css/footer.module.css"
 import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { URLs } from '../config/urls';
 const Footer = () => {
 
     return (
@@ -8,13 +10,29 @@ const Footer = () => {
             <Row>
                 <Col xs={12} md={6} lg={4}>
                     <div className={styles.leftContainer}>
-                    <div className={styles.boxHeader}>
-                        <h2>Services</h2>
+                        <div className={styles.boxHeader}>
+                            <h2>Services</h2>
+                        </div>
+                        <Link to={URLs.regularCleaning}>
+                            <p>Basic House Cleaning</p>
+                        </Link>
+                        <Link to={URLs.officeCleaning}>
+                            <p>Office Cleaning</p>
+                        </Link>
+                        <Link to={URLs.deepCleaning}>
+                            <p>Deep Cleaning</p>
+                        </Link>
+                        <Link to={URLs.airbnbCleaning}>
+                            <p>Airbnb Cleaning</p>
+                        </Link>
+                        <Link to={URLs.movingCleanup}>
+                            <p>Moving Cleaning</p>
+                        </Link>
+                        <Link to={URLs.detailedCleaning}>
+                            <p>Detailed Cleaning</p>
+                        </Link>
                     </div>
-                        <p>Basic House Cleaning</p>
-                        <p>Office Cleaning</p>
-                        <p>Deep Cleaning</p>
-                    </div>
+                    
                 </Col>
                 <Col xs={12} md={6} lg={4}>
                     <div className={styles.middleContainer}>

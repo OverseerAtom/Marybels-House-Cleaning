@@ -1,14 +1,17 @@
 .mainContainer{
     margin: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 15px 0px 15px 0px;
+    padding: 15px 25px 15px 25px;
     background-color: #333333;
 }
+.mainContainer a {
+    text-decoration: none;
+    color: inherit;
+  }
 
 .contentContainer{
     max-width: 1170px;
     display: flex;
-    justify-content: space-between;
     margin: 0 auto;
     max-width: 1240px;
     align-items: center;
@@ -84,7 +87,7 @@
 }
 
 .mainContainer h2{
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     color: white;
 }
 
@@ -92,6 +95,7 @@
     padding: 35px 0px 35px 0px;
     color: white;
     cursor: pointer;
+    text-decoration: none;
 }
 
 
