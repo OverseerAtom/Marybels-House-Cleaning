@@ -10,5 +10,7 @@ export const URLs = {
   airbnbCleaning: '/services/airbnb-cleaning',
   movingCleanup:'/services/moving-cleanup',
   detailedCleaning:'/services/detailed-cleaning',
-  regularCleaning: '/services/regular-cleaning'
+  regularCleaning: '/services/regular-cleaning',
+  pricingQuote: '/price/pricing-quote',
+  priceCalculator: '/price/pricing-calculator'
 };
