@@ -21,11 +21,13 @@ import { AirbnbCleaning } from './pages/airbnb-cleaning';
 import { MovingCleanup } from './pages/moving-cleanup';
 import { ServiceRegular } from './pages/service-regular';
 import {Cities} from './pages/available-cities-popup'
+import { ScrollToTop } from './components/js/scroll-top';
 function App() {
   return (
   <div className='App'>
     <LocalizationProvider>
       <Router>
+        <ScrollToTop/>
         <Routes>
         <Route path='/cities/popup' element={<Cities />}/>
           <Route path='/' element={<Homepage />}/>

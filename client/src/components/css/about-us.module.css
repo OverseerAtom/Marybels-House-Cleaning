@@ -1,0 +1,15 @@
+.headerContainer{
+    font-size: x-large;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    margin-left: auto;
+}
+.headerContainer h2{
+    font-weight:600;
+    font-size: xx-large;
+}
+
+.textContainer{
+    margin: 40px;
+    font-size: larger;
+}
