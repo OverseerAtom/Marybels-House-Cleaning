@@ -10,19 +10,19 @@ const AboutUsComponent = () => {
     <Container>
       <Row className="align-items-center mt-4 mb-4">
         <Col md={6} className="d-flex flex-column">
-          <img src={about1} alt="Large Photo" className="img-fluid rounded" />
+          <img src={about1} alt="Cleaned Living Room" className="img-fluid rounded" />
           <Row className="mt-4">
             <Col xs={6}>
               <img
                 src={about2}
-                alt="Small Photo 1"
+                alt="Cleaned Bedroom Room"
                 className="img-fluid rounded"
               />
             </Col>
             <Col xs={6}>
               <img
                 src={about3}
-                alt="Small Photo 2"
+                alt="Cleaned Bathroom"
                 className="img-fluid rounded"
               />
             </Col>

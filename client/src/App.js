@@ -9,17 +9,13 @@ import { About } from './pages/about';
 import { BookNow } from './pages/book-now';
 import { PricingQuote } from './pages/pricing-quote-form';
 import { PricingCalculator } from './pages/pricing-calculator';
-import { FinalPrice } from './pages/final-price';
-import { CalendarTest } from './pages/calendar-test';
 import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { RegularService } from './pages/regular-cleaning-service';
 import { DeepCleaning } from './pages/deep-cleaning';
 import { OfficeCleaning } from './pages/office-cleaning';
 import { DetailedCleaning } from './pages/detailed-cleaning';
 import { AirbnbCleaning } from './pages/airbnb-cleaning';
 import { MovingCleanup } from './pages/moving-cleanup';
-import { ServiceRegular } from './pages/service-regular';
 import {Cities} from './pages/available-cities-popup'
 import { ScrollToTop } from './components/js/scroll-top';
 function App() {
