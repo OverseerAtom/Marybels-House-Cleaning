@@ -34,14 +34,13 @@ const ContactForm = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleInputChange = (event) => {
-
-    const {name, value} = event.target;
-
-    setFormData({
-        ...formData,
-        [name] : value,
-    });
+    const { name, value } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
+  
 
   const validateForm = () => {
     let isValid = true;
@@ -74,14 +73,16 @@ const ContactForm = () => {
       if (validateForm()){
         
         try {
-          const response = await axios.post("/api/submitForm", formData);
+          const response = await axios.post("http://localhost:8080/api/submitForm", formData);
 
           if (response.status === 200 || response.status === 201) {
+            console.log("MessageSent")
             setMessageSent(true);
             setFormSubmitted(true);
-            console.log("Message sent:", messageSent);
+            toast.success("Message has been sent!")
           } else {
             console.log("Message failed to send. Status code: ", response.status);
+            toast.error("Message failed to send. Try again later.");
           }
         } catch (error) {
             console.error(error);
@@ -100,7 +101,7 @@ const ContactForm = () => {
             <div className={styles.subheadingBlock}>
               <h3>Send us a message!</h3>
             </div>
-            <Form onSubmit={handleSubmit} noValidate>
+            <Form onSubmit={handleSubmit}>
               <Row>
                 <Col xs={12} md={6}>
                   <FormGroup style={{ marginBottom: '20px' }}>

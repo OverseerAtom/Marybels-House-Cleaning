@@ -181,7 +181,7 @@ const QuoteForm = () => {
                                     <FormControl
                                     type='text'
                                     name="firstName"
-                                    value={FormData.firstName}
+                                    value={formData.firstName}
                                     onChange={handleInputChange}
                                     placeholder="First Name"
                                     className={touchedFields.firstName ? (formErrors.firstName ? 'is-invalid' : 'is-valid') : ''}
@@ -194,7 +194,7 @@ const QuoteForm = () => {
                                     <FormControl
                                     type='text'
                                     name="lastName"
-                                    value={FormData.lastName}
+                                    value={formData.lastName}
                                     onChange={handleInputChange}
                                     placeholder="Last Name"
                                     className={touchedFields.lastName ? (formErrors.lastName ? 'is-invalid' : 'is-valid') : ''}
@@ -207,7 +207,7 @@ const QuoteForm = () => {
                                     <FormControl
                                     type='text'
                                     name="email"
-                                    value={FormData.email}
+                                    value={formData.email}
                                     onChange={handleInputChange}
                                     placeholder="Email"
                                     className={touchedFields.email ? (formErrors.email ? 'is-invalid' : 'is-valid') : ''}
@@ -221,7 +221,7 @@ const QuoteForm = () => {
                                     type='tel'
                                     pattern="[0-9]*"
                                     name="phoneNumber"
-                                    value={FormData.phoneNumber}
+                                    value={formData.phoneNumber}
                                     onKeyDown={handleKeyPress}
                                     onChange={handleInputChange}
                                     placeholder="Phone Number"
@@ -238,7 +238,7 @@ const QuoteForm = () => {
                                     <FormControl
                                     as="select"
                                     name="bedrooms"
-                                    value={FormData.bedrooms}
+                                    value={formData.bedrooms}
                                     onChange={handleInputChange}
                                     placeholder='How many Bedrooms?'
                                     className={touchedFields.bedrooms ? (formErrors.bedrooms ? 'is-invalid' : 'is-valid') : ''}
@@ -259,7 +259,7 @@ const QuoteForm = () => {
                                     <FormControl
                                     as="select"
                                     name="bathrooms"
-                                    value={FormData.bathrooms}
+                                    value={formData.bathrooms}
                                     onChange={handleInputChange}
                                     placeholder='How many bathrooms?'
                                     className={touchedFields.bathrooms ? (formErrors.bathrooms ? 'is-invalid' : 'is-valid') : ''}
@@ -280,7 +280,7 @@ const QuoteForm = () => {
                                     <FormControl
                                     as='select'
                                     name="squareFeet"
-                                    value={FormData.squareFeet}
+                                    value={formData.squareFeet}
                                     onChange={handleInputChange}
                                     placeholder="How many square feet?"
                                     className={touchedFields.squareFeet ? (formErrors.squareFeet ? 'is-invalid' : 'is-valid') : ''}
@@ -302,7 +302,7 @@ const QuoteForm = () => {
                                     <FormControl
                                     as="select"
                                     name="frequency"
-                                    value={FormData.frequency}
+                                    value={formData.frequency}
                                     onChange={handleInputChange}
                                     placeholder="How frequent?"
                                     className={touchedFields.frequency ? (formErrors.frequency ? 'is-invalid' : 'is-valid') : ''}

@@ -12,7 +12,7 @@ public class EmailHtmlEscape {
     public static void main(String[] args) {
         try {
             // Read HTML content from the file "new-quote-email.html" located in the "templates" folder
-            Path htmlPath = Paths.get("src/main/resources/templates/book-appointment.html");
+            Path htmlPath = Paths.get("src/main/resources/templates/contact-us-form.html");
             String htmlContent = Files.readString(htmlPath);
 
             // Create a map to hold the JSON object key-values
