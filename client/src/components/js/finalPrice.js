@@ -7,7 +7,7 @@ import design from '../css/button.module.css'
 const PriceCalculated = ({calculation}) => {
 
     var contactLink = "http://localhost:3000/contact"
-    var calculatorLink = "http://localhost:3000/pricing/calculator"
+    var calculatorLink = "http://localhost:3000/price/pricing-calculator"
 
     const handleClick = (url) => {
         window.location.href = url
